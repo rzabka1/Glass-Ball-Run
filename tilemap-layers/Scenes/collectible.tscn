@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cqorkpda1h2jt"]
 
-[ext_resource type="Script" uid="uid://ch7u0speyg7u6" path="res://Skrypty/collectible.gd" id="1_dr5cb"]
-[ext_resource type="Texture2D" uid="uid://d0dl2ju6c4tvp" path="res://Grafika/black_white_sheet.png" id="2_73jte"]
-[ext_resource type="Shape2D" uid="uid://dd4umhre707u3" path="res://collectible_collision.tres" id="3_73jte"]
+[ext_resource type="Script" uid="uid://ch7u0speyg7u6" path="res://Scripts/collectible.gd" id="1_dr5cb"]
+[ext_resource type="Texture2D" uid="uid://d0dl2ju6c4tvp" path="res://Assets/Sprites/black_white_sheet.png" id="2_73jte"]
+[ext_resource type="Shape2D" uid="uid://dd4umhre707u3" path="res://Resources/collectible_collision.tres" id="3_73jte"]
 
 [node name="Collectible" type="Area2D"]
 script = ExtResource("1_dr5cb")

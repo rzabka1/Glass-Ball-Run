@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=4 uid="uid://ux1arfmqm4y6"]
 
-[ext_resource type="TileSet" uid="uid://bgp6h7238j24q" path="res://wzorzec.tres" id="1_saafm"]
+[ext_resource type="TileSet" uid="uid://bgp6h7238j24q" path="res://Resources/wzorzec.tres" id="1_saafm"]
 
 [node name="Level1" type="Node2D"]
 

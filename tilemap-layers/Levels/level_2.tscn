@@ -1,13 +1,14 @@
 [gd_scene load_steps=8 format=4 uid="uid://cyv438wkeuala"]
 
-[ext_resource type="Script" uid="uid://cxexvxv33v6v6" path="res://Skrypty/level.gd" id="1_cjxxw"]
-[ext_resource type="Texture2D" uid="uid://cgfw6gkqmn8pu" path="res://Grafika/makieta.png" id="1_vxa5j"]
-[ext_resource type="Texture2D" uid="uid://d0dl2ju6c4tvp" path="res://Grafika/black_white_sheet.png" id="2_h1oiv"]
-[ext_resource type="Script" uid="uid://ch7u0speyg7u6" path="res://Skrypty/collectible.gd" id="3_h1oiv"]
-[ext_resource type="PackedScene" uid="uid://b1o6ix8okpgb3" path="res://Sceny/rigid_player.tscn" id="5_cjxxw"]
+[ext_resource type="Script" uid="uid://cxexvxv33v6v6" path="res://Scripts/level.gd" id="1_dgq3b"]
+[ext_resource type="Texture2D" uid="uid://d0dl2ju6c4tvp" path="res://Assets/Sprites/black_white_sheet.png" id="2_bcgyv"]
+[ext_resource type="Script" uid="uid://ch7u0speyg7u6" path="res://Scripts/collectible.gd" id="3_fbld2"]
+[ext_resource type="PackedScene" uid="uid://b1o6ix8okpgb3" path="res://Scenes/rigid_player.tscn" id="4_s275v"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h1oiv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4w8uu"]
-texture = ExtResource("2_h1oiv")
+texture = ExtResource("2_bcgyv")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -41,7 +42,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4w8uu")
 
 [node name="Level2" type="Node2D"]
-script = ExtResource("1_cjxxw")
+script = ExtResource("1_dgq3b")
 
 [node name="Bckgr" type="CanvasLayer" parent="."]
 layer = -1
@@ -58,7 +59,7 @@ color = Color(0.5863997, 0.4271337, 0.99999195, 1)
 visible = false
 modulate = Color(1, 0.41568628, 1, 0.44313726)
 position = Vector2(1190, -60)
-texture = ExtResource("1_vxa5j")
+texture = SubResource("CompressedTexture2D_h1oiv")
 
 [node name="Tiles" type="TileMapLayer" parent="."]
 scale = Vector2(2, 2)
@@ -76,13 +77,13 @@ collision_enabled = false
 
 [node name="Collectible" type="Area2D" parent="Collectibles"]
 position = Vector2(513, 373)
-script = ExtResource("3_h1oiv")
+script = ExtResource("3_fbld2")
 metadata/_custom_type_script = "uid://ch7u0speyg7u6"
 
 [node name="Collectible2" type="Area2D" parent="Collectibles"]
 position = Vector2(665, 353)
-script = ExtResource("3_h1oiv")
+script = ExtResource("3_fbld2")
 collectible_type = 1
 metadata/_custom_type_script = "uid://ch7u0speyg7u6"
 
-[node name="RigidPlayer" parent="." instance=ExtResource("5_cjxxw")]
+[node name="RigidPlayer" parent="." instance=ExtResource("4_s275v")]

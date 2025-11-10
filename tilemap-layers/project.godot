@@ -17,7 +17,17 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://Skrypty/Global.gd"
+Global="*res://Scripts/Global.gd"
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "pink",
+"res://Levels/": "yellow",
+"res://Resources/": "purple",
+"res://Scenes/": "orange",
+"res://Scripts/": "green"
+}
 
 [input]
 

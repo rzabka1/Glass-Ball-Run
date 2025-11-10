@@ -1,7 +1,7 @@
 class_name Collectible
 extends Area2D
 
-@onready var tileset_texture = preload("res://Grafika/black_white_sheet.png")
+@onready var tileset_texture = preload("res://Assets/Sprites/black_white_sheet.png")
 
 
 enum type {COIN = 0, CLOUD = 1}
@@ -34,7 +34,7 @@ func set_up_sprite(sprite, rect):
 
 func create_collision():
 	var collision_area = CollisionShape2D.new()
-	collision_area.shape = load("res://collectible_collision.tres")
+	collision_area.shape = load("res://Resources/collectible_collision.tres")
 	add_child(collision_area)
 
 func _on_body_entered(body: Node2D) -> void:

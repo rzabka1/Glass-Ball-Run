@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://gelq0ifd87cn"]
 
-[ext_resource type="Script" uid="uid://dkyxxjstuqiux" path="res://Skrypty/player.gd" id="1_7riov"]
-[ext_resource type="Texture2D" uid="uid://d0dl2ju6c4tvp" path="res://Grafika/black_white_sheet.png" id="2_f0wn3"]
+[ext_resource type="Script" uid="uid://dkyxxjstuqiux" path="res://Scripts/player.gd" id="1_7riov"]
+[ext_resource type="Texture2D" uid="uid://d0dl2ju6c4tvp" path="res://Assets/Sprites/black_white_sheet.png" id="2_f0wn3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u83dt"]
 radius = 15.0

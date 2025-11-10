@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bja8xinxca1bf"]
 
-[ext_resource type="PackedScene" uid="uid://7mmgep2tt00h" path="res://Poziomy/level_3.tscn" id="1_mcbmc"]
+[ext_resource type="PackedScene" uid="uid://7mmgep2tt00h" path="res://Levels/level_3.tscn" id="1_mcbmc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhuoe"]
 content_margin_left = 0.0
