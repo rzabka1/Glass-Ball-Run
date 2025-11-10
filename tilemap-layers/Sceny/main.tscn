@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://bja8xinxca1bf"]
+
+[ext_resource type="PackedScene" uid="uid://7mmgep2tt00h" path="res://Poziomy/level_3.tscn" id="1_mcbmc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhuoe"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 0.72156864)
+border_width_bottom = 3
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Main" type="Node2D"]
+
+[node name="Gameplay" type="Node2D" parent="."]
+
+[node name="Level3" parent="Gameplay" instance=ExtResource("1_mcbmc")]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hhuoe")
+
+[node name="CoinsCountLabel" type="Label" parent="HUD/Control/Panel"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 8.0
+offset_right = 168.0
+offset_bottom = 31.0
+text = "0 / 3"
