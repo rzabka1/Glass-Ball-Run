@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1o6ix8okpgb3"]
+[gd_scene load_steps=5 format=3 uid="uid://b1o6ix8okpgb3"]
 
 [ext_resource type="Script" uid="uid://pd8hlf16lsbq" path="res://Scripts/rigid_player.gd" id="1_hkbye"]
 [ext_resource type="Texture2D" uid="uid://d0dl2ju6c4tvp" path="res://Assets/Sprites/black_white_sheet.png" id="2_5aea7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vfdmt"]
-radius = 15.0
+radius = 15.033297
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hkbye"]
+radius = 16.0
 
 [node name="RigidPlayer" type="RigidBody2D"]
 contact_monitor = true
@@ -23,11 +26,14 @@ region_rect = Rect2(128, 64, 32, 32)
 shape = SubResource("CircleShape2D_vfdmt")
 debug_color = Color(1.6364455e-06, 0.5903628, 0.7557934, 0.41960785)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-limit_enabled = false
-limit_left = -500
-limit_bottom = 700
-position_smoothing_enabled = true
-
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(18, -7.86805e-07)
+
+[node name="SpikeDetectingArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeDetectingArea"]
+shape = SubResource("CircleShape2D_hkbye")
+debug_color = Color(1.6364455e-06, 0.5903628, 0.7557934, 0.41960785)
+
+[connection signal="body_entered" from="SpikeDetectingArea" to="." method="_on_spike_detecting_area_body_entered"]

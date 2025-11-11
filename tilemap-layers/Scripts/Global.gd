@@ -4,6 +4,8 @@ extends Node
 
 var max_coins:int = 0
 
+@onready var last_checkpoint = get_tree().root.get_node("Main/Gameplay").get_child(0).get_node("CheckpointStart")
+
 var collected_coins_count:int:
 	set(new_val):
 		if new_val != collected_coins_count:

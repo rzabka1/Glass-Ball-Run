@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjtsmoogealy7"]
+
+[ext_resource type="Script" uid="uid://cn1ti5qhyxlnf" path="res://Scripts/checkpoint.gd" id="1_2cwi7"]
+[ext_resource type="Texture2D" uid="uid://d0dl2ju6c4tvp" path="res://Assets/Sprites/black_white_sheet.png" id="1_lbcco"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cwi7"]
+size = Vector2(24.666668, 35.333336)
+
+[sub_resource type="Animation" id="Animation_e75gc"]
+resource_name = "rise_flag"
+length = 0.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flag:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -14.66)]
+}
+
+[sub_resource type="Animation" id="Animation_i1pff"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flag:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_opoc8"]
+_data = {
+&"RESET": SubResource("Animation_i1pff"),
+&"rise_flag": SubResource("Animation_e75gc")
+}
+
+[node name="Checkpoint" type="Area2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_2cwi7")
+
+[node name="Stick" type="Sprite2D" parent="."]
+texture = ExtResource("1_lbcco")
+region_enabled = true
+region_rect = Rect2(192, 0, 32, 32)
+
+[node name="Flag" type="Sprite2D" parent="."]
+texture = ExtResource("1_lbcco")
+region_enabled = true
+region_rect = Rect2(192, 32, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.6666667, -1.666667)
+shape = SubResource("RectangleShape2D_2cwi7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_opoc8")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

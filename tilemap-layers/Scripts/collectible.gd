@@ -38,7 +38,7 @@ func create_collision():
 	add_child(collision_area)
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D or body is RigidBody2D:
+	if body is RigidBody2D and body.has_method("die"):
 		collect()
 	queue_free()
 

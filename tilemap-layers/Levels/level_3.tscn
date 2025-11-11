@@ -52,7 +52,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.48430002, 0.33626747, 0.30254382, 1)
+color = Color(0.58078486, 0.38913766, 0.32585847, 1)
 
 [node name="Tiles" type="TileMapLayer" parent="."]
 scale = Vector2(2, 2)

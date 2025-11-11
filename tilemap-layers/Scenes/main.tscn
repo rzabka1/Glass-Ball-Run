@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bja8xinxca1bf"]
 
-[ext_resource type="PackedScene" uid="uid://7mmgep2tt00h" path="res://Levels/level_3.tscn" id="1_8gbba"]
+[ext_resource type="PackedScene" uid="uid://cyv438wkeuala" path="res://Levels/level_2.tscn" id="1_8gbba"]
 [ext_resource type="FontFile" uid="uid://bj5np2a660ba7" path="res://Assets/Fonts/Minecraftia-Regular.ttf" id="2_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://d0dl2ju6c4tvp" path="res://Assets/Sprites/black_white_sheet.png" id="3_kry3j"]
 
@@ -37,7 +37,7 @@ region = Rect2(0, 64, 32, 32)
 
 [node name="Gameplay" type="Node2D" parent="."]
 
-[node name="Level3" parent="Gameplay" instance=ExtResource("1_8gbba")]
+[node name="Level2" parent="Gameplay" instance=ExtResource("1_8gbba")]
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
