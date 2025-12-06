@@ -77,17 +77,19 @@ metadata/_custom_type_script = "uid://ch7u0speyg7u6"
 [node name="Particles" type="Node2D" parent="."]
 
 [node name="RigidPlayer" parent="." instance=ExtResource("4_1ohfy")]
+position = Vector2(79, 111)
 
 [node name="LevelNameLabel" type="Label" parent="."]
 z_index = -1
 offset_left = -7.0
-offset_top = -56.0
-offset_right = 199.0
-offset_bottom = 123.0
+offset_top = -104.0
+offset_right = 245.0
+offset_bottom = 75.0
 theme_override_fonts/font = ExtResource("5_nw0dw")
 theme_override_font_sizes/font_size = 32
 text = "#3
-Slopes"
+Slopes
+(for testing)"
 horizontal_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
