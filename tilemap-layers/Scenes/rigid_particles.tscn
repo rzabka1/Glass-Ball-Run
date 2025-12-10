@@ -6,6 +6,8 @@
 radius = 4.1231055
 
 [node name="RigidParticles" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 5
 contact_monitor = true
 max_contacts_reported = 2
 constant_torque = -0.205

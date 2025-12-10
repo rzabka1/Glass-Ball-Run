@@ -39,7 +39,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_7mb4h"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 5
 physics_layer_1/collision_layer = 2
 custom_data_layer_0/name = ""
 custom_data_layer_0/type = 0
