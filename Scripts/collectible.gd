@@ -48,9 +48,12 @@ func collect() -> void:
 	if collectible_type == 0:
 		Global.collected_coins_count += 1
 	elif collectible_type == 1:
-		if id == Global.last_checkpoint.id + 1:
-			# Checking if collected flag is NEXT checkpoint's flag to avoid skipping levels
+		print("flag id: ", id, " Last checkpoint id: ", Global.last_checkpoint.id, " Last flag id: ", Global.last_flag_id)
+		# Checking if collected flag is NEXT checkpoint's flag to avoid skipping levels
+		if id == Global.last_checkpoint.id + 1 and id == Global.last_flag_id + 1:
 			Global.last_flag_id = id
+		else:
+			return
 	Global.collected_before_checkpoint.append(self)
 	enable_disable(false)
 
@@ -58,7 +61,7 @@ func uncollect() -> void:
 	if collectible_type == 0:
 		Global.collected_coins_count -= 1
 	elif collectible_type == 1:
-		pass
+		Global.last_flag_id -= 1
 	enable_disable(true)
 
 func enable_disable(is_enabling:bool) -> void: # enabling if true, disabling if false

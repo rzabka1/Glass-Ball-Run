@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bja8xinxca1bf"]
 
-[ext_resource type="PackedScene" uid="uid://b0cg81av02dbq" path="res://Scenes/level_flag_test.tscn" id="1_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://cyv438wkeuala" path="res://Levels/level_2.tscn" id="1_jjvhh"]
 [ext_resource type="FontFile" uid="uid://bj5np2a660ba7" path="res://Assets/Fonts/Minecraftia-Regular.ttf" id="2_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://d0dl2ju6c4tvp" path="res://Assets/Sprites/black_white_sheet.png" id="3_kry3j"]
 [ext_resource type="Texture2D" uid="uid://ksx1ij21h8jw" path="res://icon.svg" id="4_jjvhh"]
@@ -41,8 +41,7 @@ size = Vector2(189.02, 380.71)
 
 [node name="Gameplay" type="Node2D" parent="."]
 
-[node name="LevelFlagTest" parent="Gameplay" instance=ExtResource("1_jjvhh")]
-position = Vector2(1, 0)
+[node name="Level2" parent="Gameplay" instance=ExtResource("1_jjvhh")]
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

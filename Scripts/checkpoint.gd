@@ -15,6 +15,7 @@ func _ready() -> void:
 	state = states.LOCKED
 	if name == "CheckpointStart":
 		Global.last_checkpoint = self
+		state = states.UNLOCKED
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
