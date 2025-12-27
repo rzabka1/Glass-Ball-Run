@@ -8,7 +8,8 @@ var collected_coins_count:int:
 			collected_coins_count = new_val
 			update_label()
 var all_collectibles:Array = []
-var last_checkpoint:Area2D
+var last_checkpoint:Checkpoint
+var last_flag_id:int = -1
 @onready var coins_count_label:Label = get_tree().root.get_node("Main/HUD/Control/Panel/CoinsCountLabel")
 
 func set_max_coins() -> void:

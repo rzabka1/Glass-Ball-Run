@@ -6,10 +6,31 @@ var player:RigidBody2D
 @onready var cam:Camera2D = $Camera2D
 @onready var player_scene:PackedScene = preload("res://Scenes/rigid_player.tscn")
 @onready var collectibles_parent:Node2D = $Collectibles
+@onready var checkpoint_parent: Node2D = $Checkpoints
 
 func _ready() -> void:
 	Global.all_collectibles = collectibles_parent.get_children()
 	Global.set_max_coins()
+	assign_checkpoint_id()
+	assign_collectible_id()
+
+func assign_checkpoint_id():
+	var all_checkpoints:Array = checkpoint_parent.get_children()
+	var checkpoint_start:Checkpoint = checkpoint_parent.get_node("CheckpointStart")
+	all_checkpoints.erase(checkpoint_start)
+	checkpoint_start.id = -1
+	for checkp in all_checkpoints:
+		checkp.id = all_checkpoints.find(checkp)
+		print("Chp ID: ", checkp.id)
+
+func assign_collectible_id():
+	var flags:Array = []
+	for collectible in Global.all_collectibles:
+		if collectible.collectible_type == collectible.type.FLAG:
+			flags.append(collectible)
+	for flag in flags:
+		flag.id = flags.find(flag)
+		print("Flag ID: ", flag.id)
 
 func _process(_delta: float) -> void:
 	glue_camera_to_player()

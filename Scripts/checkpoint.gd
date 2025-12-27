@@ -8,6 +8,7 @@ var state:states:
 		if new_state != state:
 			state = new_state
 			unlock()
+var id:int
 @onready var anim:AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
@@ -17,7 +18,9 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		state = states.UNLOCKED
+		if name == "CheckpointStart" or Global.last_flag_id >= id:
+			state = states.UNLOCKED
+		else: print("You must collect a flag!")
 
 func unlock():
 	anim.play("rise_flag")

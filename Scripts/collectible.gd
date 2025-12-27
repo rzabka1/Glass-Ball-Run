@@ -3,6 +3,7 @@ extends Area2D
 
 enum type {COIN = 0, FLAG = 1}
 
+var id:int = NAN
 @export var collectible_type:type = type.COIN
 @onready var tileset_texture:CompressedTexture2D = preload("res://Assets/Sprites/black_white_sheet.png")
 
@@ -40,14 +41,16 @@ func create_collision() -> void:
 	add_child(collision_area)
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is RigidBody2D and body.has_method("die"):
+	if body is Player:
 		collect()
 
 func collect() -> void:
 	if collectible_type == 0:
 		Global.collected_coins_count += 1
 	elif collectible_type == 1:
-		pass
+		if id == Global.last_checkpoint.id + 1:
+			# Checking if collected flag is NEXT checkpoint's flag to avoid skipping levels
+			Global.last_flag_id = id
 	Global.collected_before_checkpoint.append(self)
 	enable_disable(false)
 
