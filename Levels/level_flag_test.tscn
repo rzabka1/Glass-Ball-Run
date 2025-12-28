@@ -1,14 +1,14 @@
 [gd_scene load_steps=9 format=4 uid="uid://b0cg81av02dbq"]
 
-[ext_resource type="Script" uid="uid://cxexvxv33v6v6" path="res://Scripts/level.gd" id="1_56fpp"]
-[ext_resource type="Texture2D" uid="uid://d0dl2ju6c4tvp" path="res://Assets/Sprites/black_white_sheet.png" id="2_g412s"]
-[ext_resource type="PackedScene" uid="uid://cjtsmoogealy7" path="res://Scenes/checkpoint.tscn" id="3_tiaoq"]
-[ext_resource type="Script" uid="uid://ch7u0speyg7u6" path="res://Scripts/collectible.gd" id="4_yrn2r"]
-[ext_resource type="FontFile" uid="uid://bj5np2a660ba7" path="res://Assets/Fonts/Minecraftia-Regular.ttf" id="5_02q88"]
-[ext_resource type="PackedScene" uid="uid://b1o6ix8okpgb3" path="res://Scenes/rigid_player.tscn" id="6_uhjt8"]
+[ext_resource type="Script" uid="uid://cxexvxv33v6v6" path="res://Scripts/level.gd" id="1_v24bq"]
+[ext_resource type="Texture2D" uid="uid://d0dl2ju6c4tvp" path="res://Assets/Sprites/black_white_sheet.png" id="2_jk5ma"]
+[ext_resource type="PackedScene" uid="uid://cjtsmoogealy7" path="res://Scenes/checkpoint.tscn" id="3_2iym5"]
+[ext_resource type="Script" uid="uid://ch7u0speyg7u6" path="res://Scripts/collectible.gd" id="4_dneqs"]
+[ext_resource type="FontFile" uid="uid://bj5np2a660ba7" path="res://Assets/Fonts/Minecraftia-Regular.ttf" id="5_ook50"]
+[ext_resource type="PackedScene" uid="uid://b1o6ix8okpgb3" path="res://Scenes/rigid_player.tscn" id="6_n4oa3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fbld2"]
-texture = ExtResource("2_g412s")
+texture = ExtResource("2_jk5ma")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -40,7 +40,7 @@ custom_data_layer_0/type = 0
 sources/0 = SubResource("TileSetAtlasSource_fbld2")
 
 [node name="LevelFlagTest" type="Node2D"]
-script = ExtResource("1_56fpp")
+script = ExtResource("1_v24bq")
 
 [node name="Bckgr" type="CanvasLayer" parent="."]
 layer = -1
@@ -60,35 +60,35 @@ tile_set = SubResource("TileSet_7mb4h")
 
 [node name="Checkpoints" type="Node2D" parent="."]
 
-[node name="CheckpointStart" parent="Checkpoints" instance=ExtResource("3_tiaoq")]
+[node name="CheckpointStart" parent="Checkpoints" instance=ExtResource("3_2iym5")]
 position = Vector2(111, 223)
 
-[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("3_tiaoq")]
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("3_2iym5")]
 position = Vector2(383, 425)
 
-[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("3_tiaoq")]
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("3_2iym5")]
 position = Vector2(774, 427)
 
-[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("3_tiaoq")]
+[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("3_2iym5")]
 position = Vector2(1159, 426)
 
 [node name="Collectibles" type="Node2D" parent="."]
 
 [node name="Collectible" type="Area2D" parent="Collectibles"]
 position = Vector2(233, 177)
-script = ExtResource("4_yrn2r")
+script = ExtResource("4_dneqs")
 collectible_type = 1
 metadata/_custom_type_script = "uid://ch7u0speyg7u6"
 
 [node name="Collectible2" type="Area2D" parent="Collectibles"]
 position = Vector2(578, 177)
-script = ExtResource("4_yrn2r")
+script = ExtResource("4_dneqs")
 collectible_type = 1
 metadata/_custom_type_script = "uid://ch7u0speyg7u6"
 
 [node name="Collectible3" type="Area2D" parent="Collectibles"]
 position = Vector2(967, 175)
-script = ExtResource("4_yrn2r")
+script = ExtResource("4_dneqs")
 collectible_type = 1
 metadata/_custom_type_script = "uid://ch7u0speyg7u6"
 
@@ -106,7 +106,7 @@ offset_left = 103.0
 offset_top = 51.0
 offset_right = 309.0
 offset_bottom = 230.0
-theme_override_fonts/font = ExtResource("5_02q88")
+theme_override_fonts/font = ExtResource("5_ook50")
 theme_override_font_sizes/font_size = 32
 text = "#TESTS"
 horizontal_alignment = 1
@@ -120,7 +120,7 @@ offset_right = 1090.0
 offset_bottom = 486.0
 scale = Vector2(0.75, 0.75)
 theme_override_constants/line_spacing = -42
-theme_override_fonts/font = ExtResource("5_02q88")
+theme_override_fonts/font = ExtResource("5_ook50")
 theme_override_font_sizes/font_size = 48
 text = "!   !   !
 ⬇️💀⬇️"
@@ -135,7 +135,7 @@ offset_right = 2146.0
 offset_bottom = 161.0
 scale = Vector2(0.75, 0.75)
 theme_override_constants/line_spacing = 0
-theme_override_fonts/font = ExtResource("5_02q88")
+theme_override_fonts/font = ExtResource("5_ook50")
 theme_override_font_sizes/font_size = 32
 text = "Good
 job!!!  :>"
@@ -145,7 +145,7 @@ horizontal_alignment = 1
 wait_time = 2.0
 one_shot = true
 
-[node name="RigidPlayer" parent="." instance=ExtResource("6_uhjt8")]
+[node name="RigidPlayer" parent="." instance=ExtResource("6_n4oa3")]
 position = Vector2(42, 290)
 
 [connection signal="timeout" from="PlayerRespawnTimer" to="." method="_on_player_respawn_timer_timeout"]
