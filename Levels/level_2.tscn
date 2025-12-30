@@ -45,7 +45,7 @@ script = ExtResource("1_dgq3b")
 [node name="Bckgr" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="ColorRect" type="ColorRect" parent="Bckgr"]
+[node name="BgColor" type="ColorRect" parent="Bckgr"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
