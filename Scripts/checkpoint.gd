@@ -9,6 +9,7 @@ var state:states:
 			state = new_state
 			unlock()
 var id:int
+var level:Level
 @onready var anim:AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
@@ -27,3 +28,8 @@ func unlock():
 	anim.play("rise_flag")
 	Global.last_checkpoint = self
 	Global.collected_before_checkpoint.clear()
+	change_bg_color()
+
+func change_bg_color():
+	await get_tree().create_timer(0.1).timeout
+	level.bg_color.color = modulate.lightened(0.3)

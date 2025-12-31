@@ -8,7 +8,8 @@ var checkpoint_start:Checkpoint
 @onready var player_scene:PackedScene = preload("res://Scenes/rigid_player.tscn")
 @onready var collectibles_parent:Node2D = $Collectibles
 @onready var checkpoint_parent: Node2D = $Checkpoints
-@onready var bg_color: ColorRect = $Bckgr/ColorRect
+@onready var bg_color: ColorRect = $Bckgr/BgColor
+
 
 func _ready() -> void:
 	Global.all_collectibles = collectibles_parent.get_children()
@@ -33,6 +34,7 @@ func assign_collectible_id():
 
 func get_all_checkpoints() -> Array:
 	var all_checkpoints:Array = checkpoint_parent.get_children()
+	introduce_yourself_to_checkpoints(all_checkpoints)
 	all_checkpoints.erase(checkpoint_start)
 	return all_checkpoints
 
@@ -50,9 +52,9 @@ func set_level_color():
 			get_all_checkpoints()[i].modulate = level_color_arr[1]
 			get_all_flags()[i].modulate = level_color_arr[1]
 
-
-
-
+func introduce_yourself_to_checkpoints(all_checkpoints_including_start:Array):
+	for checkpoint in all_checkpoints_including_start:
+		checkpoint.level = self
 
 func _process(_delta: float) -> void:
 	glue_camera_to_player()
