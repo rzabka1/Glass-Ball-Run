@@ -4,25 +4,31 @@ extends Area2D
 enum type {COIN = 0, FLAG = 1}
 
 var id:int = NAN
+var audio_stream_player:AudioStreamPlayer
 @export var collectible_type:type = type.COIN
 @onready var tileset_texture:CompressedTexture2D = preload("res://Assets/Sprites/black_white_sheet.png")
 
 func _ready() -> void:
 	connect("body_entered", _on_body_entered)
-	create_sprite(match_sprite_regions_to_type())
+	create_sprite(match_sprite_regions_and_sfx_to_type()[0])
+	create_audio_player(match_sprite_regions_and_sfx_to_type()[1])
 	create_collision()
 
-func match_sprite_regions_to_type() -> Vector2:
+func match_sprite_regions_and_sfx_to_type() -> Array:
 	var region:Vector2
+	var sfx:AudioStreamWAV
 	match collectible_type:
-		0:
+		0: # COIN
 			region = Vector2(0,64)
-		1:
+			sfx = load("res://Assets/Audio/redball-sfx-flag.wav") # Temporarily the same as flag
+		1: # FLAG
 			region = Vector2(96,32)
+			sfx = load("res://Assets/Audio/redball-sfx-flag.wav")
 		_:
 			printerr("collectible.gd: Invalid collectible type!")
 			breakpoint
-	return region
+	var reg_sfx_arr:Array = [region, sfx]
+	return reg_sfx_arr
 
 func create_sprite(reg:Vector2) -> void:
 	var sprite:Sprite2D = Sprite2D.new()
@@ -40,6 +46,11 @@ func create_collision() -> void:
 	collision_area.shape = load("res://Resources/collectible_collision.tres")
 	add_child(collision_area)
 
+func create_audio_player(sfx):
+	audio_stream_player = AudioStreamPlayer.new()
+	audio_stream_player.stream = sfx
+	add_child(audio_stream_player)
+
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		collect()
@@ -55,6 +66,7 @@ func collect() -> void:
 		else:
 			return
 	Global.collected_before_checkpoint.append(self)
+	audio_stream_player.play()
 	enable_disable(false)
 
 func uncollect() -> void:

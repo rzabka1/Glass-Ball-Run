@@ -9,7 +9,7 @@ var checkpoint_start:Checkpoint
 @onready var collectibles_parent:Node2D = $Collectibles
 @onready var checkpoint_parent: Node2D = $Checkpoints
 @onready var bg_color: ColorRect = $Bckgr/BgColor
-
+@onready var player_death_sfx: AudioStreamPlayer = $PlayerDeathSfx
 
 func _ready() -> void:
 	Global.all_collectibles = collectibles_parent.get_children()

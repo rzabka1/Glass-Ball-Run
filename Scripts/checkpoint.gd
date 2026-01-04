@@ -11,6 +11,7 @@ var state:states:
 var id:int
 var level:Level
 @onready var anim:AnimationPlayer = $AnimationPlayer
+@onready var audio_stream_player: AudioStreamPlayer = $UnlockSfx
 
 func _ready() -> void:
 	state = states.LOCKED
@@ -26,6 +27,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 func unlock():
 	anim.play("rise_flag")
+	audio_stream_player.play()
 	Global.last_checkpoint = self
 	Global.collected_before_checkpoint.clear()
 	change_bg_color()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cyv438wkeuala"]
+[gd_scene load_steps=10 format=4 uid="uid://cyv438wkeuala"]
 
 [ext_resource type="Script" uid="uid://cxexvxv33v6v6" path="res://Scripts/level.gd" id="1_dgq3b"]
 [ext_resource type="Texture2D" uid="uid://d0dl2ju6c4tvp" path="res://Assets/Sprites/black_white_sheet.png" id="2_bcgyv"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cjtsmoogealy7" path="res://Scenes/checkpoint.tscn" id="3_s275v"]
 [ext_resource type="PackedScene" uid="uid://b1o6ix8okpgb3" path="res://Scenes/rigid_player.tscn" id="4_s275v"]
 [ext_resource type="FontFile" uid="uid://bj5np2a660ba7" path="res://Assets/Fonts/Minecraftia-Regular.ttf" id="6_pml6m"]
+[ext_resource type="AudioStream" uid="uid://cevn3xgxv8jod" path="res://Assets/Audio/redball-sfx-breaking-glass.wav" id="6_s275v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fbld2"]
 texture = ExtResource("2_bcgyv")
@@ -151,6 +152,9 @@ horizontal_alignment = 1
 [node name="PlayerRespawnTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="PlayerDeathSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_s275v")
 
 [node name="RigidPlayer" parent="." instance=ExtResource("4_s275v")]
 position = Vector2(42, 290)

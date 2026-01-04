@@ -3,6 +3,7 @@ extends RigidBody2D
 
 var angle:float = NAN # using NAN, because when using null, type cannot be declared as a float
 var jump_velocity:int = -40000
+var level:Level
 @onready var raycast:RayCast2D = $RayCast2D
 @onready var collision:CollisionShape2D = $CollisionShape2D
 @onready var sprite:Sprite2D = $Sprite2D
@@ -14,6 +15,7 @@ func _ready() -> void:
 func introduce_yourself_to_level():
 	if get_parent() is Level:
 		get_parent().player = self
+		level = get_parent()
 	else:
 		printerr("rigid_player.gd: Invalid player-to-Level path. Check the tree!")
 		breakpoint
@@ -68,12 +70,13 @@ func die() -> void:
 	collision.set_deferred("disabled", true)
 	sprite.visible = false
 	set_up_particles()
-	get_parent().start_respawn_timer()
+	level.player_death_sfx.play()
+	level.start_respawn_timer()
 	queue_free()
 
 func set_up_particles():
 	var new_particle_parent:Node2D = Node2D.new()
-	get_parent().add_child(new_particle_parent)
+	level.add_child(new_particle_parent)
 	new_particle_parent.position = position
 	create_particles(new_particle_parent)
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjtsmoogealy7"]
+[gd_scene load_steps=8 format=3 uid="uid://cjtsmoogealy7"]
 
 [ext_resource type="Script" uid="uid://cn1ti5qhyxlnf" path="res://Scripts/checkpoint.gd" id="1_2cwi7"]
 [ext_resource type="Texture2D" uid="uid://d0dl2ju6c4tvp" path="res://Assets/Sprites/black_white_sheet.png" id="1_lbcco"]
+[ext_resource type="AudioStream" uid="uid://be4bgkxnshbeq" path="res://Assets/Audio/redball-sfx-checkpoint.wav" id="3_e75gc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cwi7"]
 size = Vector2(24.666668, 35.333336)
@@ -69,5 +70,8 @@ shape = SubResource("RectangleShape2D_2cwi7")
 libraries = {
 &"": SubResource("AnimationLibrary_opoc8")
 }
+
+[node name="UnlockSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_e75gc")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
