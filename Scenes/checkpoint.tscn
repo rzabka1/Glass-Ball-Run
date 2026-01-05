@@ -1,25 +1,37 @@
 [gd_scene load_steps=8 format=3 uid="uid://cjtsmoogealy7"]
 
 [ext_resource type="Script" uid="uid://cn1ti5qhyxlnf" path="res://Scripts/checkpoint.gd" id="1_2cwi7"]
-[ext_resource type="Texture2D" uid="uid://d0dl2ju6c4tvp" path="res://Assets/Sprites/black_white_sheet.png" id="1_lbcco"]
+[ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white-border-tileset.png" id="2_e75gc"]
 [ext_resource type="AudioStream" uid="uid://be4bgkxnshbeq" path="res://Assets/Audio/redball-sfx-checkpoint.wav" id="3_e75gc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cwi7"]
-size = Vector2(24.666668, 35.333336)
+size = Vector2(18, 32)
 
 [sub_resource type="Animation" id="Animation_i1pff"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Flag:position")
+tracks/0/path = NodePath("Flag:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flag:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(9.333334, 8)]
+"values": [Vector2(9.333334, 24)]
 }
 
 [sub_resource type="Animation" id="Animation_e75gc"]
@@ -29,14 +41,26 @@ step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Flag:position")
-tracks/0/interp = 2
+tracks/0/path = NodePath("Flag:visible")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flag:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(9.333334, 8), Vector2(9.333334, -6)]
+"values": [Vector2(9.333334, 24), Vector2(9.333334, 9.999999)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_opoc8"]
@@ -47,23 +71,25 @@ _data = {
 
 [node name="Checkpoint" type="Area2D"]
 modulate = Color(0.12557665, 0.62478924, 5.7756904e-07, 1)
-scale = Vector2(1.5, 1.5)
 script = ExtResource("1_2cwi7")
 
 [node name="Stick" type="Sprite2D" parent="."]
-position = Vector2(7.3333335, 0)
-texture = ExtResource("1_lbcco")
+position = Vector2(9.333334, 9.999998)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_e75gc")
 region_enabled = true
-region_rect = Rect2(96, 0, 32, 32)
+region_rect = Rect2(1120, 320, 160, 160)
 
 [node name="Flag" type="Sprite2D" parent="."]
-position = Vector2(9.333334, 8)
-texture = ExtResource("1_lbcco")
+visible = false
+position = Vector2(9.333334, 24)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_e75gc")
 region_enabled = true
-region_rect = Rect2(96, 32, 32, 32)
+region_rect = Rect2(1280, 320, 160, 160)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1.666667)
+position = Vector2(3.0000005, 10.666666)
 shape = SubResource("RectangleShape2D_2cwi7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

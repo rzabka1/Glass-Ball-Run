@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://clxvsvc1in26c"]
 
-[ext_resource type="Texture2D" uid="uid://d0dl2ju6c4tvp" path="res://Assets/Sprites/black_white_sheet.png" id="1_geto1"]
+[ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white-border-tileset.png" id="1_geto1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_geto1"]
-radius = 4.1231055
+radius = 3.0
 
 [node name="RigidParticles" type="RigidBody2D"]
 collision_layer = 4
@@ -13,10 +13,10 @@ max_contacts_reported = 2
 constant_torque = -0.205
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_geto1")
 region_enabled = true
-region_rect = Rect2(64, 64, 32, 32)
+region_rect = Rect2(1440, 0, 160, 160)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_geto1")

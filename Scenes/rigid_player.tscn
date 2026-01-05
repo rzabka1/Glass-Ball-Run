@@ -1,26 +1,27 @@
 [gd_scene load_steps=5 format=3 uid="uid://b1o6ix8okpgb3"]
 
 [ext_resource type="Script" uid="uid://pd8hlf16lsbq" path="res://Scripts/rigid_player.gd" id="1_hkbye"]
-[ext_resource type="Texture2D" uid="uid://d0dl2ju6c4tvp" path="res://Assets/Sprites/black_white_sheet.png" id="2_5aea7"]
+[ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white-border-tileset.png" id="2_hkbye"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vfdmt"]
-radius = 15.033297
+radius = 10.049875
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hkbye"]
-radius = 16.0
+radius = 11.0
 
 [node name="RigidPlayer" type="RigidBody2D"]
+gravity_scale = 0.9
 contact_monitor = true
 max_contacts_reported = 2
 constant_torque = -0.205
 script = ExtResource("1_hkbye")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, -3)
-scale = Vector2(2, 2)
-texture = ExtResource("2_5aea7")
+position = Vector2(-1, -5.9604645e-08)
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("2_hkbye")
 region_enabled = true
-region_rect = Rect2(96, 64, 32, 32)
+region_rect = Rect2(1600, 160, 160, 160)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vfdmt")
@@ -30,9 +31,11 @@ debug_color = Color(1.6364455e-06, 0.5903628, 0.7557934, 0.41960785)
 target_position = Vector2(0, 17)
 
 [node name="SpikeDetectingArea" type="Area2D" parent="."]
+position = Vector2(0, 2)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeDetectingArea"]
+position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_hkbye")
 debug_color = Color(1.6364455e-06, 0.5903628, 0.7557934, 0.41960785)
 

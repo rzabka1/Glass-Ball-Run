@@ -2,7 +2,7 @@ class_name Player
 extends RigidBody2D
 
 var angle:float = NAN # using NAN, because when using null, type cannot be declared as a float
-var jump_velocity:int = -40000
+var jump_velocity:int = -30000
 var level:Level
 @onready var raycast:RayCast2D = $RayCast2D
 @onready var collision:CollisionShape2D = $CollisionShape2D
@@ -31,9 +31,9 @@ func handle_movement() -> void:
 	if direction:
 		if angle != NAN and abs(angle) < 75:
 			if direction < 0:
-				speed += angle * 30
+				speed += angle * 20
 			elif direction > 0:
-				speed -= angle * 30
+				speed -= angle * 20
 		else:
 			speed /= 2
 		apply_central_force(Vector2(direction*speed,0))
