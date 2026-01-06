@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://cjtsmoogealy7"]
 
 [ext_resource type="Script" uid="uid://cn1ti5qhyxlnf" path="res://Scripts/checkpoint.gd" id="1_2cwi7"]
-[ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white-border-tileset.png" id="2_e75gc"]
+[ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white_border_tileset.png" id="2_e75gc"]
 [ext_resource type="AudioStream" uid="uid://be4bgkxnshbeq" path="res://Assets/Audio/redball-sfx-checkpoint.wav" id="3_e75gc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cwi7"]
-size = Vector2(18, 32)
+size = Vector2(26, 46)
 
 [sub_resource type="Animation" id="Animation_i1pff"]
 length = 0.001
@@ -70,26 +70,27 @@ _data = {
 }
 
 [node name="Checkpoint" type="Area2D"]
-modulate = Color(0.12557665, 0.62478924, 5.7756904e-07, 1)
+modulate = Color(0.13335153, 0.49560964, 0, 1)
 script = ExtResource("1_2cwi7")
 
 [node name="Stick" type="Sprite2D" parent="."]
-position = Vector2(9.333334, 9.999998)
-scale = Vector2(0.2, 0.2)
+position = Vector2(10, 9.999998)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_e75gc")
 region_enabled = true
-region_rect = Rect2(1120, 320, 160, 160)
+region_rect = Rect2(1120, 320, 160, 159)
 
 [node name="Flag" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(9.333334, 24)
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_e75gc")
 region_enabled = true
-region_rect = Rect2(1280, 320, 160, 160)
+region_rect = Rect2(1280, 320, 159, 159)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.0000005, 10.666666)
+visible = false
+position = Vector2(1.0000005, 12.000001)
 shape = SubResource("RectangleShape2D_2cwi7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

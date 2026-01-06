@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://b0cg81av02dbq"]
 
 [ext_resource type="Script" uid="uid://cxexvxv33v6v6" path="res://Scripts/level.gd" id="1_v24bq"]
-[ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white-border-tileset.png" id="2_jk5ma"]
+[ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white_border_tileset.png" id="2_jk5ma"]
 [ext_resource type="PackedScene" uid="uid://cjtsmoogealy7" path="res://Scenes/checkpoint.tscn" id="3_2iym5"]
 [ext_resource type="Script" uid="uid://ch7u0speyg7u6" path="res://Scripts/collectible.gd" id="4_dneqs"]
 [ext_resource type="FontFile" uid="uid://bj5np2a660ba7" path="res://Assets/Fonts/Minecraftia-Regular.ttf" id="5_ook50"]
@@ -212,6 +212,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.3709187, 0.6141819, 0.555972, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Tiles" type="TileMapLayer" parent="."]
 position = Vector2(-38, 146.00006)
@@ -222,16 +223,16 @@ tile_set = SubResource("TileSet_dneqs")
 [node name="Checkpoints" type="Node2D" parent="."]
 
 [node name="CheckpointStart" parent="Checkpoints" instance=ExtResource("3_2iym5")]
-position = Vector2(20, 120)
+position = Vector2(20, 112)
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("3_2iym5")]
-position = Vector2(387, 120)
+position = Vector2(387, 112)
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("3_2iym5")]
-position = Vector2(923, -168)
+position = Vector2(923, -176)
 
 [node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("3_2iym5")]
-position = Vector2(1421, -168)
+position = Vector2(1421, -176)
 
 [node name="Collectibles" type="Node2D" parent="."]
 
@@ -278,6 +279,7 @@ theme_override_font_sizes/font_size = 24
 text = "#0
 Tests :>"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="LevelNameLabel2" type="Label" parent="."]
 z_index = -1
@@ -292,6 +294,7 @@ theme_override_font_sizes/font_size = 32
 text = "!   !   !
 ⬇️💀⬇️"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="YouWinLabel" type="Label" parent="."]
 z_index = -1
@@ -306,6 +309,7 @@ theme_override_font_sizes/font_size = 24
 text = "Good
 job!!!  :>"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="PlayerRespawnTimer" type="Timer" parent="."]
 wait_time = 2.0

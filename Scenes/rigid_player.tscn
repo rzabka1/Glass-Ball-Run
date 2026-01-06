@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b1o6ix8okpgb3"]
 
 [ext_resource type="Script" uid="uid://pd8hlf16lsbq" path="res://Scripts/rigid_player.gd" id="1_hkbye"]
-[ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white-border-tileset.png" id="2_hkbye"]
+[ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white_border_tileset.png" id="2_hkbye"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vfdmt"]
 radius = 10.049875
@@ -21,7 +21,7 @@ position = Vector2(-1, -5.9604645e-08)
 scale = Vector2(0.19, 0.19)
 texture = ExtResource("2_hkbye")
 region_enabled = true
-region_rect = Rect2(1600, 160, 160, 160)
+region_rect = Rect2(1600, 160, 160, 159)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vfdmt")

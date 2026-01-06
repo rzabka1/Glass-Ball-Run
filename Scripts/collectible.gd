@@ -6,7 +6,7 @@ enum type {COIN = 0, FLAG = 1}
 var id:int = NAN
 var audio_stream_player:AudioStreamPlayer
 @export var collectible_type:type = type.COIN
-@onready var tileset_texture:CompressedTexture2D = preload("res://Assets/Sprites/white-border-tileset.png")
+@onready var tileset_texture:CompressedTexture2D = preload("res://Assets/Sprites/white_border_tileset.png")
 
 func _ready() -> void:
 	connect("body_entered", _on_body_entered)
@@ -19,7 +19,7 @@ func match_sprite_regions_and_sfx_to_type() -> Array:
 	var sfx:AudioStreamWAV
 	match collectible_type:
 		0: # COIN
-			region = Vector2(1440,160)
+			region = Vector2(1441,160)
 			sfx = load("res://Assets/Audio/redball-sfx-flag.wav") # Temporarily the same as flag
 		1: # FLAG
 			region = Vector2(1600,0)
@@ -32,7 +32,7 @@ func match_sprite_regions_and_sfx_to_type() -> Array:
 
 func create_sprite(reg:Vector2) -> void:
 	var sprite:Sprite2D = Sprite2D.new()
-	set_up_sprite(sprite, Rect2(reg.x, reg.y, 160, 160))
+	set_up_sprite(sprite, Rect2(reg.x, reg.y, 159, 158))
 	add_child(sprite)
 
 func set_up_sprite(sprite, rect) -> void:

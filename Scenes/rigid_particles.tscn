@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://clxvsvc1in26c"]
 
-[ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white-border-tileset.png" id="1_geto1"]
+[ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white_border_tileset.png" id="1_geto1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_geto1"]
 radius = 3.0

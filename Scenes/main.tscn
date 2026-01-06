@@ -1,9 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://bja8xinxca1bf"]
+[gd_scene load_steps=18 format=3 uid="uid://bja8xinxca1bf"]
 
+[ext_resource type="Texture2D" uid="uid://duxlabxh8arp3" path="res://Assets/Sprites/grid_bg.jpg" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://b0cg81av02dbq" path="res://Levels/level_flag_test.tscn" id="1_jjvhh"]
+[ext_resource type="Shader" uid="uid://dobmful5tajjg" path="res://Resources/chroma_key.gdshader" id="2_6bp64"]
 [ext_resource type="FontFile" uid="uid://bj5np2a660ba7" path="res://Assets/Fonts/Minecraftia-Regular.ttf" id="2_jjvhh"]
-[ext_resource type="Texture2D" uid="uid://d0dl2ju6c4tvp" path="res://Assets/Sprites/black_white_sheet.png" id="3_kry3j"]
+[ext_resource type="Script" uid="uid://dnwf5jcl8qv7" path="res://Scripts/hud.gd" id="4_6bp64"]
+[ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white_border_tileset.png" id="4_6iyac"]
 [ext_resource type="Texture2D" uid="uid://ksx1ij21h8jw" path="res://icon.svg" id="4_jjvhh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_344ge"]
+shader = ExtResource("2_6bp64")
+shader_parameter/chroma_key = Color(0.18039216, 0.03529412, 0.23137255, 1)
+shader_parameter/intensity = 0.0010000000475
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhuoe"]
 content_margin_left = 0.0
@@ -19,8 +27,8 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_21xkr"]
-atlas = ExtResource("3_kry3j")
-region = Rect2(0, 64, 32, 32)
+atlas = ExtResource("4_6iyac")
+region = Rect2(1440, 160, 160, 160)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8gbba"]
 
@@ -39,11 +47,42 @@ size = Vector2(189.02, 380.71)
 
 [node name="Main" type="Node2D"]
 
+[node name="PlatformBgTexture" type="Sprite2D" parent="."]
+modulate = Color(0.35617894, 0.06466895, 0.15147322, 1)
+position = Vector2(577.09375, 325.5)
+scale = Vector2(1.84375, 1.84375)
+texture = ExtResource("1_21xkr")
+
+[node name="PlatformBgColor" type="ColorRect" parent="."]
+visible = false
+offset_right = 1157.0
+offset_bottom = 657.0
+color = Color(0.18039216, 0.03529412, 0.23137255, 1)
+
 [node name="Gameplay" type="Node2D" parent="."]
 
-[node name="LevelFlagTest" parent="Gameplay" instance=ExtResource("1_jjvhh")]
+[node name="LevelLayer" type="CanvasLayer" parent="Gameplay"]
+layer = 0
+follow_viewport_enabled = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Gameplay/LevelLayer"]
+material = SubResource("ShaderMaterial_344ge")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Gameplay/LevelLayer/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="LevelFlagTest" parent="Gameplay/LevelLayer/SubViewportContainer/SubViewport" instance=ExtResource("1_jjvhh")]
 
 [node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("4_6bp64")
 
 [node name="Control" type="Control" parent="HUD"]
 layout_mode = 3
@@ -76,11 +115,12 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureRect" type="TextureRect" parent="HUD/Control/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.06857639
+anchor_left = 0.06423611
 anchor_top = 0.023809524
-anchor_right = 0.106770836
-anchor_bottom = 0.9047619
+anchor_right = 0.11805555
+anchor_bottom = 1.0
 texture = SubResource("AtlasTexture_21xkr")
+expand_mode = 1
 stretch_mode = 6
 metadata/_edit_use_anchors_ = true
 
@@ -105,16 +145,18 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_344ge")
 text = "Level   X"
 metadata/_edit_use_anchors_ = true
 
-[node name="MenuButton" type="Button" parent="HUD/Control/Panel"]
+[node name="BgCheckButton" type="CheckButton" parent="HUD/Control/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.8645833
-anchor_top = -0.04761905
-anchor_right = 0.9730903
-anchor_bottom = 1.1428572
+anchor_left = 0.8454861
+anchor_right = 0.9539931
+anchor_bottom = 1.1904764
+offset_right = 28.0
+focus_mode = 0
 theme_override_colors/font_pressed_color = Color(0.46666667, 0.63529414, 0.9529412, 1)
 theme_override_colors/font_hover_color = Color(0.6745098, 0.9647059, 0.8117647, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.46666667, 0.63529414, 0.9529412, 1)
+theme_override_constants/h_separation = 14
 theme_override_fonts/font = ExtResource("2_jjvhh")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8gbba")
@@ -123,7 +165,8 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_kry3j")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_21xkr")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_6bp64")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_344ge")
-text = "Menu"
+button_pressed = true
+text = "Cool   BG"
 metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="HUD/Control"]
@@ -182,3 +225,5 @@ texture_pressed = ExtResource("4_jjvhh")
 shape = SubResource("RectangleShape2D_kry3j")
 passby_press = true
 action = "Jump"
+
+[connection signal="toggled" from="HUD/Control/Panel/BgCheckButton" to="HUD" method="_on_bg_check_button_toggled"]
