@@ -34,4 +34,4 @@ func unlock():
 
 func change_bg_color():
 	await get_tree().create_timer(0.1).timeout
-	level.bg_color.color = modulate.lightened(ColorLib.bg_lightened_value)
+	level.bg_color.color = modulate.lightened(ColorLib.bg_lighten_offset)

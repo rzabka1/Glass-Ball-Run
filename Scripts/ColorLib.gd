@@ -19,7 +19,7 @@ var level_colors:Array[Color] = [
 	Color(0.544, 0.638, 0.8, 1.0)
 	]
 var current_color_index:int = -1
-var bg_lightened_value:float = 0.3 # How much lighter background will be than the flag
+var bg_lighten_offset:float = 0.3 # How much lighter background will be than the flag
 
 func pick_level_color() -> Color:
 	# Safety check: If array is empty, return a default fallback
