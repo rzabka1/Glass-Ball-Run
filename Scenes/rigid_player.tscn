@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white_border_tileset.png" id="2_hkbye"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vfdmt"]
-radius = 10.049875
+radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hkbye"]
-radius = 11.0
+radius = 13.0
 
 [node name="RigidPlayer" type="RigidBody2D"]
 gravity_scale = 0.9
@@ -18,7 +18,7 @@ script = ExtResource("1_hkbye")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -5.9604645e-08)
-scale = Vector2(0.19, 0.19)
+scale = Vector2(0.23, 0.23)
 texture = ExtResource("2_hkbye")
 region_enabled = true
 region_rect = Rect2(1600, 160, 160, 159)
