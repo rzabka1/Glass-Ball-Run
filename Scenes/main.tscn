@@ -1,12 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://bja8xinxca1bf"]
+[gd_scene load_steps=21 format=3 uid="uid://bja8xinxca1bf"]
 
 [ext_resource type="Texture2D" uid="uid://duxlabxh8arp3" path="res://Assets/Sprites/grid_bg.jpg" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://b0cg81av02dbq" path="res://Levels/level_flag_test.tscn" id="1_jjvhh"]
 [ext_resource type="Shader" uid="uid://dobmful5tajjg" path="res://Resources/chroma_key.gdshader" id="2_6bp64"]
-[ext_resource type="FontFile" uid="uid://bj5np2a660ba7" path="res://Assets/Fonts/Minecraftia-Regular.ttf" id="2_jjvhh"]
 [ext_resource type="Script" uid="uid://dnwf5jcl8qv7" path="res://Scripts/hud.gd" id="4_6bp64"]
 [ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white_border_tileset.png" id="4_6iyac"]
 [ext_resource type="Texture2D" uid="uid://ksx1ij21h8jw" path="res://icon.svg" id="4_jjvhh"]
+[ext_resource type="FontFile" uid="uid://bnt8n28p40v6a" path="res://Assets/Fonts/SeriousShanns-Bold.otf" id="5_6bp64"]
+[ext_resource type="Texture2D" uid="uid://cle5wswimbfyx" path="res://Assets/Sprites/touch_screen_buttons.png" id="7_6bp64"]
+[ext_resource type="Shader" uid="uid://bw2f2trnjl761" path="res://Resources/frosted_glass.gdshader" id="7_ynf5e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_344ge"]
 shader = ExtResource("2_6bp64")
@@ -44,6 +46,33 @@ region = Rect2(1440, 160, 160, 160)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
 size = Vector2(189.02, 380.71)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hptm8"]
+shader = ExtResource("7_ynf5e")
+shader_parameter/shape_type = 0
+shader_parameter/rect_size = Vector2(300, 200)
+shader_parameter/corner_radius_top_left = 100.0
+shader_parameter/corner_radius_top_right = 100.0
+shader_parameter/corner_radius_bottom_left = 100.0
+shader_parameter/corner_radius_bottom_right = 100.0
+shader_parameter/circle_radius = 100.0
+shader_parameter/outline_enabled = false
+shader_parameter/outline_width = 2.0
+shader_parameter/outline_color = Color(1, 1, 1, 0.8)
+shader_parameter/shadow_enabled = false
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_offset = Vector2(10, 10)
+shader_parameter/shadow_blur = 15.0
+shader_parameter/edge_softness = 1.0
+shader_parameter/shape_color = Color(0.3, 0.5, 0.9, 1)
+shader_parameter/color_gradient_y = 1.5
+shader_parameter/color_gradient_x = -0.8
+shader_parameter/color_multiplier = 0.9
+shader_parameter/enable_screen_blur = true
+shader_parameter/blur_amount = 2.000000095
+shader_parameter/blur_samples = 32
+shader_parameter/glass_opacity = 0.150000007125
+shader_parameter/node_size = Vector2(400, 400)
 
 [node name="Main" type="Node2D"]
 
@@ -110,8 +139,8 @@ anchor_left = 0.11111111
 anchor_top = 0.0952381
 anchor_right = 0.16840278
 anchor_bottom = 1.0952381
-theme_override_fonts/font = ExtResource("2_jjvhh")
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("5_6bp64")
+theme_override_font_sizes/font_size = 32
 text = "/"
 metadata/_edit_use_anchors_ = true
 
@@ -137,15 +166,15 @@ anchor_bottom = 1.1428572
 theme_override_colors/font_pressed_color = Color(0.46666667, 0.63529414, 0.9529412, 1)
 theme_override_colors/font_hover_color = Color(0.6745098, 0.9647059, 0.8117647, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.46666667, 0.63529414, 0.9529412, 1)
-theme_override_fonts/font = ExtResource("2_jjvhh")
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("5_6bp64")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8gbba")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_jjvhh")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_kry3j")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_21xkr")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_6bp64")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_344ge")
-text = "Level   X"
+text = "Level X"
 metadata/_edit_use_anchors_ = true
 
 [node name="BgCheckButton" type="CheckButton" parent="HUD/Control/Panel"]
@@ -160,8 +189,8 @@ theme_override_colors/font_pressed_color = Color(0.46666667, 0.63529414, 0.95294
 theme_override_colors/font_hover_color = Color(0.6745098, 0.9647059, 0.8117647, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.46666667, 0.63529414, 0.9529412, 1)
 theme_override_constants/h_separation = 14
-theme_override_fonts/font = ExtResource("2_jjvhh")
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("5_6bp64")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8gbba")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_jjvhh")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_kry3j")
@@ -169,11 +198,10 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_21xkr")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_6bp64")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_344ge")
 button_pressed = true
-text = "Cool   BG"
+text = "Cool BG"
 metadata/_edit_use_anchors_ = true
 
-[node name="Control" type="Control" parent="HUD/Control"]
-visible = false
+[node name="LeftTouchAnchors" type="Control" parent="HUD/Control"]
 layout_mode = 1
 anchor_left = 0.072
 anchor_top = 0.886
@@ -183,35 +211,59 @@ offset_top = -40.0
 offset_right = 40.0
 grow_vertical = 0
 
-[node name="TouchLeft" type="TouchScreenButton" parent="HUD/Control/Control"]
-position = Vector2(-47.944, -76.12799)
-texture_normal = ExtResource("4_jjvhh")
-texture_pressed = ExtResource("4_jjvhh")
+[node name="LeftTouchButton" type="TouchScreenButton" parent="HUD/Control/LeftTouchAnchors"]
+position = Vector2(34.056, -5.1279907)
 shape = SubResource("RectangleShape2D_kry3j")
 passby_press = true
 action = "Left"
 
-[node name="Control2" type="Control" parent="HUD/Control"]
-visible = false
+[node name="Frost" type="Sprite2D" parent="HUD/Control/LeftTouchAnchors/LeftTouchButton"]
+material = SubResource("ShaderMaterial_hptm8")
+position = Vector2(-17.330002, -13.950012)
+scale = Vector2(1.62, 1.62)
+texture = ExtResource("4_jjvhh")
+region_enabled = true
+region_rect = Rect2(0, 0, 107, 105)
+
+[node name="TextureLeft" type="Sprite2D" parent="HUD/Control/LeftTouchAnchors/LeftTouchButton"]
+self_modulate = Color(1, 1, 1, 0.66300005)
+position = Vector2(0, 3)
+texture = ExtResource("7_6bp64")
+region_enabled = true
+region_rect = Rect2(0, 0, 107, 105)
+
+[node name="RightTouchAnchors" type="Control" parent="HUD/Control"]
 layout_mode = 1
 anchor_left = 0.198
 anchor_top = 0.886
 anchor_right = 0.198
 anchor_bottom = 0.886
+offset_left = 19.0
 offset_top = -40.0
-offset_right = 40.0
+offset_right = 59.000015
 grow_vertical = 0
 
-[node name="TouchRight" type="TouchScreenButton" parent="HUD/Control/Control2"]
-position = Vector2(-57.095993, -76.12799)
-texture_normal = ExtResource("4_jjvhh")
-texture_pressed = ExtResource("4_jjvhh")
+[node name="RightTouchButton" type="TouchScreenButton" parent="HUD/Control/RightTouchAnchors"]
+position = Vector2(39.904007, -2.1279907)
 shape = SubResource("RectangleShape2D_kry3j")
 passby_press = true
 action = "Right"
 
-[node name="Control3" type="Control" parent="HUD/Control"]
-visible = false
+[node name="Frost" type="Sprite2D" parent="HUD/Control/RightTouchAnchors/RightTouchButton"]
+material = SubResource("ShaderMaterial_hptm8")
+position = Vector2(-16.999985, -18)
+scale = Vector2(1.62, 1.62)
+texture = ExtResource("4_jjvhh")
+region_enabled = true
+region_rect = Rect2(0, 0, 107, 105)
+
+[node name="TextureRight" type="Sprite2D" parent="HUD/Control/RightTouchAnchors/RightTouchButton"]
+self_modulate = Color(1, 1, 1, 0.66300005)
+texture = ExtResource("7_6bp64")
+region_enabled = true
+region_rect = Rect2(107, 0, 107, 105)
+
+[node name="JumpTouchAnchors" type="Control" parent="HUD/Control"]
 layout_mode = 1
 anchor_left = 0.882
 anchor_top = 0.886
@@ -221,12 +273,24 @@ offset_top = -40.0
 offset_right = 40.0
 grow_vertical = 0
 
-[node name="TouchJump" type="TouchScreenButton" parent="HUD/Control/Control3"]
-position = Vector2(-45.064026, -76.12799)
-texture_normal = ExtResource("4_jjvhh")
-texture_pressed = ExtResource("4_jjvhh")
+[node name="JumpTouchButton" type="TouchScreenButton" parent="HUD/Control/JumpTouchAnchors"]
+position = Vector2(2.9359741, -2.1279907)
 shape = SubResource("RectangleShape2D_kry3j")
 passby_press = true
 action = "Jump"
+
+[node name="Frost" type="Sprite2D" parent="HUD/Control/JumpTouchAnchors/JumpTouchButton"]
+material = SubResource("ShaderMaterial_hptm8")
+position = Vector2(-17.999985, -18)
+scale = Vector2(1.62, 1.62)
+texture = ExtResource("4_jjvhh")
+region_enabled = true
+region_rect = Rect2(0, 0, 107, 105)
+
+[node name="TextureJump" type="Sprite2D" parent="HUD/Control/JumpTouchAnchors/JumpTouchButton"]
+self_modulate = Color(1, 1, 1, 0.66300005)
+texture = ExtResource("7_6bp64")
+region_enabled = true
+region_rect = Rect2(214, 0, 107, 105)
 
 [connection signal="toggled" from="HUD/Control/Panel/BgCheckButton" to="HUD" method="_on_bg_check_button_toggled"]

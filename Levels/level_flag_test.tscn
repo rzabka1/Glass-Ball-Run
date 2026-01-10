@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white_border_tileset.png" id="2_jk5ma"]
 [ext_resource type="PackedScene" uid="uid://cjtsmoogealy7" path="res://Scenes/checkpoint.tscn" id="3_2iym5"]
 [ext_resource type="Script" uid="uid://ch7u0speyg7u6" path="res://Scripts/collectible.gd" id="4_dneqs"]
-[ext_resource type="FontFile" uid="uid://bj5np2a660ba7" path="res://Assets/Fonts/Minecraftia-Regular.ttf" id="5_ook50"]
+[ext_resource type="FontFile" uid="uid://bnt8n28p40v6a" path="res://Assets/Fonts/SeriousShanns-Bold.otf" id="5_jk5ma"]
 [ext_resource type="AudioStream" uid="uid://cevn3xgxv8jod" path="res://Assets/Audio/redball-sfx-breaking-glass.wav" id="6_jk5ma"]
 [ext_resource type="PackedScene" uid="uid://b1o6ix8okpgb3" path="res://Scenes/rigid_player.tscn" id="6_n4oa3"]
 
@@ -330,40 +330,25 @@ offset_left = -18.0
 offset_top = -15.0
 offset_right = 188.0
 offset_bottom = 164.0
-theme_override_fonts/font = ExtResource("5_ook50")
-theme_override_font_sizes/font_size = 24
-text = "#0
-Tests :>"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="LevelNameLabel2" type="Label" parent="."]
-z_index = -1
-offset_left = 396.0
-offset_top = 96.0
-offset_right = 602.0
-offset_bottom = 275.0
-scale = Vector2(0.75, 0.75)
-theme_override_constants/line_spacing = -42
-theme_override_fonts/font = ExtResource("5_ook50")
+theme_override_fonts/font = ExtResource("5_jk5ma")
 theme_override_font_sizes/font_size = 32
-text = "!   !   !
-⬇️💀⬇️"
+text = "#0
+Tests :>  "
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="YouWinLabel" type="Label" parent="."]
 z_index = -1
-offset_left = 1346.0
-offset_top = -249.0
-offset_right = 1552.0
-offset_bottom = -70.0
+offset_left = 1339.0
+offset_top = -282.0
+offset_right = 1545.0
+offset_bottom = -103.0
 scale = Vector2(0.75, 0.75)
 theme_override_constants/line_spacing = 0
-theme_override_fonts/font = ExtResource("5_ook50")
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("5_jk5ma")
+theme_override_font_sizes/font_size = 48
 text = "Good
-job!!!  :>"
+job! :>"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
