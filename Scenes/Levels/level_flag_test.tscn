@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://b0cg81av02dbq"]
+[gd_scene load_steps=11 format=4 uid="uid://b0cg81av02dbq"]
 
 [ext_resource type="Script" uid="uid://cxexvxv33v6v6" path="res://Scripts/level.gd" id="1_v24bq"]
 [ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white_border_tileset.png" id="2_jk5ma"]
@@ -255,6 +255,10 @@ terrain_set_0/terrain_1/name = "Outline"
 terrain_set_0/terrain_1/color = Color(5.631298e-06, 0.88478917, 0.22084454, 1)
 sources/0 = SubResource("TileSetAtlasSource_2iym5")
 
+[sub_resource type="LabelSettings" id="LabelSettings_jk5ma"]
+font = ExtResource("5_jk5ma")
+font_size = 48
+
 [node name="LevelFlagTest" type="Node2D"]
 script = ExtResource("1_v24bq")
 
@@ -324,31 +328,58 @@ limit_left = -500
 limit_bottom = 700
 position_smoothing_enabled = true
 
-[node name="LevelNameLabel" type="Label" parent="."]
+[node name="LevelName0" type="Label" parent="."]
 z_index = -1
-offset_left = -18.0
-offset_top = -15.0
-offset_right = 188.0
-offset_bottom = 164.0
-theme_override_fonts/font = ExtResource("5_jk5ma")
-theme_override_font_sizes/font_size = 32
+offset_left = -13.0
+offset_top = 32.0
+offset_right = 269.0
+offset_bottom = 211.0
+scale = Vector2(0.5, 0.5)
 text = "#0
-Tests :>  "
+Level Name "
+label_settings = SubResource("LabelSettings_jk5ma")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelName1" type="Label" parent="."]
+z_index = -1
+offset_left = 373.0
+offset_top = 8.0
+offset_right = 579.0
+offset_bottom = 187.0
+scale = Vector2(0.5, 0.5)
+text = "#1
+Level
+Name"
+label_settings = SubResource("LabelSettings_jk5ma")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelName2" type="Label" parent="."]
+z_index = -1
+offset_left = 919.0
+offset_top = -295.0
+offset_right = 1125.0
+offset_bottom = -116.0
+scale = Vector2(0.5, 0.5)
+text = "#2
+Level
+Name "
+label_settings = SubResource("LabelSettings_jk5ma")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="YouWinLabel" type="Label" parent="."]
 z_index = -1
-offset_left = 1339.0
-offset_top = -282.0
-offset_right = 1545.0
-offset_bottom = -103.0
-scale = Vector2(0.75, 0.75)
+offset_left = 1373.0
+offset_top = -272.0
+offset_right = 1579.0
+offset_bottom = -93.0
+scale = Vector2(0.5, 0.5)
 theme_override_constants/line_spacing = 0
-theme_override_fonts/font = ExtResource("5_jk5ma")
-theme_override_font_sizes/font_size = 48
 text = "Good
 job! :>"
+label_settings = SubResource("LabelSettings_jk5ma")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -360,6 +391,5 @@ one_shot = true
 stream = ExtResource("6_jk5ma")
 
 [node name="RigidPlayer" parent="." instance=ExtResource("6_n4oa3")]
-position = Vector2(4, -10)
 
 [connection signal="timeout" from="PlayerRespawnTimer" to="." method="_on_player_respawn_timer_timeout"]

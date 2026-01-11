@@ -1,0 +1,223 @@
+[gd_scene load_steps=4 format=3 uid="uid://c61qvifkm8tce"]
+
+[ext_resource type="Script" uid="uid://dvnvms28r0ia8" path="res://Scripts/ferris_wheel.gd" id="1_mn4k2"]
+[ext_resource type="Texture2D" uid="uid://ksx1ij21h8jw" path="res://icon.svg" id="2_q4tpc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8xcr"]
+size = Vector2(504, 17)
+
+[node name="FerrisTest" type="Node2D"]
+position = Vector2(558, 282)
+
+[node name="FerrisWheel" type="Node2D" parent="."]
+script = ExtResource("1_mn4k2")
+
+[node name="Arm" type="AnimatableBody2D" parent="FerrisWheel"]
+
+[node name="Sprite2D" type="Sprite2D" parent="FerrisWheel/Arm"]
+modulate = Color(0.47902924, 0.00016932398, 0.48204994, 1)
+scale = Vector2(3.9296875, 0.140625)
+texture = ExtResource("2_q4tpc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FerrisWheel/Arm"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_m8xcr")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="FerrisWheel"]
+position = Vector2(-238, 3)
+node_a = NodePath("../Arm")
+node_b = NodePath("../Cart1")
+
+[node name="Cart1" type="RigidBody2D" parent="FerrisWheel"]
+position = Vector2(-238, 3)
+
+[node name="Sprites" type="Node2D" parent="FerrisWheel/Cart1"]
+scale = Vector2(3, 3.75)
+
+[node name="Sprite2D" type="Sprite2D" parent="FerrisWheel/Cart1/Sprites"]
+modulate = Color(0.29587033, 0.08628286, 0.28170404, 1)
+position = Vector2(-4.9545517, 9.035126)
+rotation = 0.5235988
+scale = Vector2(0.029687505, 0.2)
+texture = ExtResource("2_q4tpc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="FerrisWheel/Cart1/Sprites"]
+modulate = Color(0.29587033, 0.08628286, 0.28170404, 1)
+position = Vector2(5.94545, 9.035126)
+rotation = -0.52359897
+scale = Vector2(0.029687507, 0.2)
+texture = ExtResource("2_q4tpc")
+
+[node name="Sprite2D3" type="Sprite2D" parent="FerrisWheel/Cart1/Sprites"]
+position = Vector2(1, 20)
+scale = Vector2(0.2, 0.045312505)
+texture = ExtResource("2_q4tpc")
+
+[node name="Sprite2D4" type="Sprite2D" parent="FerrisWheel/Cart1/Sprites"]
+position = Vector2(-12, 18)
+rotation = 0.696258
+scale = Vector2(0.08967728, 0.04013348)
+texture = ExtResource("2_q4tpc")
+
+[node name="Sprite2D5" type="Sprite2D" parent="FerrisWheel/Cart1/Sprites"]
+position = Vector2(14, 18)
+rotation = -0.69638616
+scale = Vector2(0.08967728, 0.04013348)
+texture = ExtResource("2_q4tpc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FerrisWheel/Cart1"]
+polygon = PackedVector2Array(-44, 48, -53, 60, -34, 84, 41, 85, 59, 60, 49, 49, 33, 66, -26, 66)
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="FerrisWheel"]
+position = Vector2(237, 3)
+node_a = NodePath("../Arm")
+node_b = NodePath("../Cart2")
+
+[node name="Cart2" type="RigidBody2D" parent="FerrisWheel"]
+position = Vector2(237, 3)
+
+[node name="Sprites" type="Node2D" parent="FerrisWheel/Cart2"]
+scale = Vector2(3, 3.75)
+
+[node name="Sprite2D" type="Sprite2D" parent="FerrisWheel/Cart2/Sprites"]
+modulate = Color(0.29587033, 0.08628286, 0.28170404, 1)
+position = Vector2(-4.9545517, 9.035126)
+rotation = 0.5235988
+scale = Vector2(0.029687505, 0.2)
+texture = ExtResource("2_q4tpc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="FerrisWheel/Cart2/Sprites"]
+modulate = Color(0.29587033, 0.08628286, 0.28170404, 1)
+position = Vector2(5.94545, 9.035126)
+rotation = -0.52359897
+scale = Vector2(0.029687507, 0.2)
+texture = ExtResource("2_q4tpc")
+
+[node name="Sprite2D3" type="Sprite2D" parent="FerrisWheel/Cart2/Sprites"]
+position = Vector2(1, 20)
+scale = Vector2(0.2, 0.045312505)
+texture = ExtResource("2_q4tpc")
+
+[node name="Sprite2D4" type="Sprite2D" parent="FerrisWheel/Cart2/Sprites"]
+position = Vector2(-12, 18)
+rotation = 0.696258
+scale = Vector2(0.08967728, 0.04013348)
+texture = ExtResource("2_q4tpc")
+
+[node name="Sprite2D5" type="Sprite2D" parent="FerrisWheel/Cart2/Sprites"]
+position = Vector2(14, 18)
+rotation = -0.69638616
+scale = Vector2(0.08967728, 0.04013348)
+texture = ExtResource("2_q4tpc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FerrisWheel/Cart2"]
+polygon = PackedVector2Array(-44, 48, -53, 60, -34, 84, 41, 85, 59, 60, 49, 49, 33, 66, -26, 66)
+
+[node name="FerrisWheel2" type="Node2D" parent="."]
+script = ExtResource("1_mn4k2")
+
+[node name="Arm" type="AnimatableBody2D" parent="FerrisWheel2"]
+rotation = 1.5707964
+
+[node name="Sprite2D" type="Sprite2D" parent="FerrisWheel2/Arm"]
+modulate = Color(0.47902924, 0.00016932398, 0.48204994, 1)
+scale = Vector2(3.9296875, 0.140625)
+texture = ExtResource("2_q4tpc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FerrisWheel2/Arm"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_m8xcr")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="FerrisWheel2"]
+position = Vector2(0, -239)
+node_a = NodePath("../Arm")
+node_b = NodePath("../Cart1")
+
+[node name="Cart1" type="RigidBody2D" parent="FerrisWheel2"]
+position = Vector2(0, -239)
+
+[node name="Sprites" type="Node2D" parent="FerrisWheel2/Cart1"]
+scale = Vector2(3, 3.75)
+
+[node name="Sprite2D" type="Sprite2D" parent="FerrisWheel2/Cart1/Sprites"]
+modulate = Color(0.29587033, 0.08628286, 0.28170404, 1)
+position = Vector2(-4.9545517, 9.035126)
+rotation = 0.5235988
+scale = Vector2(0.029687505, 0.2)
+texture = ExtResource("2_q4tpc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="FerrisWheel2/Cart1/Sprites"]
+modulate = Color(0.29587033, 0.08628286, 0.28170404, 1)
+position = Vector2(5.94545, 9.035126)
+rotation = -0.52359897
+scale = Vector2(0.029687507, 0.2)
+texture = ExtResource("2_q4tpc")
+
+[node name="Sprite2D3" type="Sprite2D" parent="FerrisWheel2/Cart1/Sprites"]
+position = Vector2(1, 20)
+scale = Vector2(0.2, 0.045312505)
+texture = ExtResource("2_q4tpc")
+
+[node name="Sprite2D4" type="Sprite2D" parent="FerrisWheel2/Cart1/Sprites"]
+position = Vector2(-12, 18)
+rotation = 0.696258
+scale = Vector2(0.08967728, 0.04013348)
+texture = ExtResource("2_q4tpc")
+
+[node name="Sprite2D5" type="Sprite2D" parent="FerrisWheel2/Cart1/Sprites"]
+position = Vector2(14, 18)
+rotation = -0.69638616
+scale = Vector2(0.08967728, 0.04013348)
+texture = ExtResource("2_q4tpc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FerrisWheel2/Cart1"]
+polygon = PackedVector2Array(-44, 48, -53, 60, -34, 84, 41, 85, 59, 60, 49, 49, 33, 66, -26, 66)
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="FerrisWheel2"]
+position = Vector2(-1, 238)
+node_a = NodePath("../Arm")
+node_b = NodePath("../Cart2")
+
+[node name="Cart2" type="RigidBody2D" parent="FerrisWheel2"]
+position = Vector2(-1, 238)
+
+[node name="Sprites" type="Node2D" parent="FerrisWheel2/Cart2"]
+scale = Vector2(3, 3.75)
+
+[node name="Sprite2D" type="Sprite2D" parent="FerrisWheel2/Cart2/Sprites"]
+modulate = Color(0.29587033, 0.08628286, 0.28170404, 1)
+position = Vector2(-4.9545517, 9.035126)
+rotation = 0.5235988
+scale = Vector2(0.029687505, 0.2)
+texture = ExtResource("2_q4tpc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="FerrisWheel2/Cart2/Sprites"]
+modulate = Color(0.29587033, 0.08628286, 0.28170404, 1)
+position = Vector2(5.94545, 9.035126)
+rotation = -0.52359897
+scale = Vector2(0.029687507, 0.2)
+texture = ExtResource("2_q4tpc")
+
+[node name="Sprite2D3" type="Sprite2D" parent="FerrisWheel2/Cart2/Sprites"]
+position = Vector2(1, 20)
+scale = Vector2(0.2, 0.045312505)
+texture = ExtResource("2_q4tpc")
+
+[node name="Sprite2D4" type="Sprite2D" parent="FerrisWheel2/Cart2/Sprites"]
+position = Vector2(-12, 18)
+rotation = 0.696258
+scale = Vector2(0.08967728, 0.04013348)
+texture = ExtResource("2_q4tpc")
+
+[node name="Sprite2D5" type="Sprite2D" parent="FerrisWheel2/Cart2/Sprites"]
+position = Vector2(14, 18)
+rotation = -0.69638616
+scale = Vector2(0.08967728, 0.04013348)
+texture = ExtResource("2_q4tpc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FerrisWheel2/Cart2"]
+polygon = PackedVector2Array(-44, 48, -53, 60, -34, 84, 41, 85, 59, 60, 49, 49, 33, 66, -26, 66)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("../FerrisWheel/Arm")
+node_b = NodePath("../FerrisWheel2/Arm")

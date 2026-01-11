@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://bja8xinxca1bf"]
 
 [ext_resource type="Texture2D" uid="uid://duxlabxh8arp3" path="res://Assets/Sprites/grid_bg.jpg" id="1_21xkr"]
-[ext_resource type="PackedScene" uid="uid://b0cg81av02dbq" path="res://Levels/level_flag_test.tscn" id="1_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://b0cg81av02dbq" path="res://Scenes/Levels/level_flag_test.tscn" id="1_jjvhh"]
 [ext_resource type="Shader" uid="uid://dobmful5tajjg" path="res://Resources/chroma_key.gdshader" id="2_6bp64"]
 [ext_resource type="Script" uid="uid://dnwf5jcl8qv7" path="res://Scripts/hud.gd" id="4_6bp64"]
 [ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white_border_tileset.png" id="4_6iyac"]

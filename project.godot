@@ -28,9 +28,9 @@ export/android/java_sdk_path="C:/Program Files/Eclipse Adoptium/jdk-17.0.14.7-ho
 
 folder_colors={
 "res://Assets/": "pink",
-"res://Levels/": "yellow",
 "res://Resources/": "purple",
 "res://Scenes/": "orange",
+"res://Scenes/Levels/": "yellow",
 "res://Scripts/": "green"
 }
 

@@ -1,0 +1,126 @@
+[gd_scene load_steps=5 format=3 uid="uid://d02oj63bswgmx"]
+
+[ext_resource type="Script" uid="uid://dvnvms28r0ia8" path="res://Scripts/ferris_wheel.gd" id="1_m8xcr"]
+[ext_resource type="Texture2D" uid="uid://cewfhadtapm25" path="res://Assets/Sprites/ferris_wheel_arms.png" id="2_mdu1h"]
+[ext_resource type="Texture2D" uid="uid://lflc5h76tn1a" path="res://Assets/Sprites/ferris_wheel_cart.png" id="3_xccy1"]
+[ext_resource type="Texture2D" uid="uid://btf7k4hca2gve" path="res://Assets/Sprites/ferris_wheel_front.png" id="4_xccy1"]
+
+[node name="FerrisWheel" type="Node2D"]
+script = ExtResource("1_m8xcr")
+
+[node name="Arm" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Arm"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_mdu1h")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(1, -213)
+node_a = NodePath("../Arm")
+node_b = NodePath("../Cart1")
+
+[node name="Cart1" type="RigidBody2D" parent="."]
+position = Vector2(1, -213)
+mass = 30.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Cart1"]
+position = Vector2(0, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_xccy1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cart1"]
+polygon = PackedVector2Array(-40, 44, -20, 54, 19, 55, 39, 43, 50, 62, 25, 77, -26, 76, -50, 61)
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(188, -107)
+node_a = NodePath("../Arm")
+node_b = NodePath("../Cart2")
+
+[node name="Cart2" type="RigidBody2D" parent="."]
+position = Vector2(188, -107)
+mass = 30.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Cart2"]
+position = Vector2(0, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_xccy1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cart2"]
+polygon = PackedVector2Array(-40, 44, -20, 54, 19, 55, 39, 43, 50, 62, 25, 77, -26, 76, -50, 61)
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2(188, 110)
+node_a = NodePath("../Arm")
+node_b = NodePath("../Cart3")
+
+[node name="Cart3" type="RigidBody2D" parent="."]
+position = Vector2(188, 110)
+mass = 30.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Cart3"]
+position = Vector2(0, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_xccy1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cart3"]
+polygon = PackedVector2Array(-40, 44, -20, 54, 19, 55, 39, 43, 50, 62, 25, 77, -26, 76, -50, 61)
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="."]
+position = Vector2(0, 215)
+node_a = NodePath("../Arm")
+node_b = NodePath("../Cart4")
+
+[node name="Cart4" type="RigidBody2D" parent="."]
+position = Vector2(0, 215)
+mass = 30.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Cart4"]
+position = Vector2(0, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_xccy1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cart4"]
+polygon = PackedVector2Array(-40, 44, -20, 54, 19, 55, 39, 43, 50, 62, 25, 77, -26, 76, -50, 61)
+
+[node name="PinJoint2D5" type="PinJoint2D" parent="."]
+position = Vector2(-188, 109)
+node_a = NodePath("../Arm")
+node_b = NodePath("../Cart5")
+
+[node name="Cart5" type="RigidBody2D" parent="."]
+position = Vector2(-188, 109)
+mass = 30.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Cart5"]
+position = Vector2(0, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_xccy1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cart5"]
+polygon = PackedVector2Array(-40, 44, -20, 54, 19, 55, 39, 43, 50, 62, 25, 77, -26, 76, -50, 61)
+
+[node name="PinJoint2D6" type="PinJoint2D" parent="."]
+position = Vector2(-187, -108)
+node_a = NodePath("../Arm")
+node_b = NodePath("../Cart6")
+
+[node name="Cart6" type="RigidBody2D" parent="."]
+position = Vector2(-187, -108)
+mass = 30.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Cart6"]
+position = Vector2(0, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_xccy1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cart6"]
+polygon = PackedVector2Array(-40, 44, -20, 54, 19, 55, 39, 43, 50, 62, 25, 77, -26, 76, -50, 61)
+
+[node name="Front" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Front"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_xccy1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Front"]
+polygon = PackedVector2Array(-15, -32, 16, -32, 36, -18, 36, 18, 16, 32, -16, 32, -36, 18, -36, -18)
