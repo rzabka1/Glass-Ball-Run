@@ -20,10 +20,6 @@ config/icon="res://icon.svg"
 Global="*res://Scripts/Global.gd"
 ColorLib="*res://Scripts/ColorLib.gd"
 
-[editor_overrides]
-
-export/android/java_sdk_path="C:/Program Files/Eclipse Adoptium/jdk-17.0.14.7-hotspot"
-
 [file_customization]
 
 folder_colors={

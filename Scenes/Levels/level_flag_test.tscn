@@ -319,6 +319,11 @@ position = Vector2(917, 174)
 script = ExtResource("4_dneqs")
 metadata/_custom_type_script = "uid://ch7u0speyg7u6"
 
+[node name="Collectible5" type="Area2D" parent="Collectibles"]
+position = Vector2(93, 102)
+script = ExtResource("4_dneqs")
+metadata/_custom_type_script = "uid://ch7u0speyg7u6"
+
 [node name="Particles" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]

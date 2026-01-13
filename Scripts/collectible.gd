@@ -20,8 +20,7 @@ func match_sprite_regions_and_sfx_to_type() -> Array:
 	match collectible_type:
 		0: # COIN
 			region = Vector2(1441,160)
-			# TODO: Change the Coin SFX to something different than the flag
-			sfx = load("res://Assets/Audio/redball-sfx-flag.wav") # Temporarily the same as flag
+			sfx = load("res://Assets/Audio/redball-coin-collect.wav")
 		1: # FLAG
 			region = Vector2(1600,0)
 			sfx = load("res://Assets/Audio/redball-sfx-flag.wav")
