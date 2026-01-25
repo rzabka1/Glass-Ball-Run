@@ -1,8 +1,8 @@
 extends CanvasLayer
 
 @export var coins_count_label:Label
-@export var platform_bg_texture: Sprite2D
-@export var platform_bg_color: ColorRect
+@export var platform_bg_texture:TextureRect
+@export var platform_bg_color:ColorRect
 
 func _ready() -> void:
 	Global.coins_count_changed.connect(_on_coins_count_changed)
