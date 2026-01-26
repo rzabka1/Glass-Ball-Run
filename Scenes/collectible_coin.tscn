@@ -18,7 +18,7 @@ region_rect = Rect2(1440, 160, 160, 159)
 position = Vector2(1, 0)
 shape = ExtResource("3_lut5b")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="CoinCollectSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_4hyek")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

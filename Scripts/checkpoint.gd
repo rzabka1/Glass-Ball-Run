@@ -31,6 +31,8 @@ func unlock():
 	Global.last_checkpoint = self
 	Global.collected_before_checkpoint.clear()
 	change_bg_color()
+	if level:
+		level.manage_flag_visibility()
 
 func change_bg_color():
 	await get_tree().create_timer(0.1).timeout

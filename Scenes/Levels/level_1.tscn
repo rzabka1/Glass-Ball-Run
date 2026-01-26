@@ -313,7 +313,7 @@ position = Vector2(3247, -112)
 position = Vector2(9, -9)
 
 [node name="Flag2" parent="Collectibles" instance=ExtResource("5_rb0md")]
-position = Vector2(793, 299)
+position = Vector2(793, 268)
 
 [node name="Coin" parent="Collectibles" instance=ExtResource("6_u5ghp")]
 position = Vector2(1543, -146)
@@ -330,7 +330,7 @@ position = Vector2(2540, -234)
 [node name="Particles" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(2.75, 2.75)
 limit_enabled = false
 limit_left = -500
 limit_bottom = 700
