@@ -37,8 +37,7 @@ func create_sprite(reg:Vector2) -> void:
 
 func set_up_sprite(sprite, rect) -> void:
 	sprite.texture = tileset_texture
-	#sprite.scale = Vector2(2.0, 2.0)
-	sprite.scale = Vector2(0.25, 0.25)
+	sprite.scale = Vector2(0.35, 0.35)
 	sprite.region_enabled = true
 	sprite.region_rect = rect
 

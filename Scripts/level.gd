@@ -81,3 +81,7 @@ func uncollect_collectibles() -> void:
 		if Global.collected_before_checkpoint.has(collectible):
 			collectible.uncollect()
 	Global.collected_before_checkpoint.clear()
+
+func _on_world_boundary_area_body_entered(body: Node2D) -> void:
+	if body is Player:
+		body.die()

@@ -1,8 +1,8 @@
 [gd_scene load_steps=25 format=3 uid="uid://bja8xinxca1bf"]
 
 [ext_resource type="Texture2D" uid="uid://duxlabxh8arp3" path="res://Assets/Sprites/grid_bg.jpg" id="1_21xkr"]
-[ext_resource type="PackedScene" uid="uid://b0cg81av02dbq" path="res://Scenes/Levels/level_flag_test.tscn" id="1_jjvhh"]
 [ext_resource type="Shader" uid="uid://dobmful5tajjg" path="res://Resources/chroma_key.gdshader" id="2_6bp64"]
+[ext_resource type="PackedScene" uid="uid://dlsxump8cdbae" path="res://Scenes/Levels/level_1.tscn" id="3_fdnlq"]
 [ext_resource type="Script" uid="uid://dnwf5jcl8qv7" path="res://Scripts/hud.gd" id="4_6bp64"]
 [ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white_border_tileset.png" id="4_6iyac"]
 [ext_resource type="Texture2D" uid="uid://ksx1ij21h8jw" path="res://icon.svg" id="4_jjvhh"]
@@ -132,15 +132,15 @@ handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="LevelFlagTest" parent="Gameplay/LevelLayer/SubViewportContainer/SubViewport" instance=ExtResource("1_jjvhh")]
+[node name="Level1" parent="Gameplay/LevelLayer/SubViewportContainer/SubViewport" instance=ExtResource("3_fdnlq")]
 
-[node name="HUD" type="CanvasLayer" parent="." node_paths=PackedStringArray("coins_count_label", "platform_bg_texture", "platform_bg_color")]
+[node name="HUDLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("coins_count_label", "platform_bg_texture", "platform_bg_color")]
 script = ExtResource("4_6bp64")
-coins_count_label = NodePath("Control/PanelContainer/Panel/MarginContainer/PanelContents/CoinCounter/CoinsCountLabel")
+coins_count_label = NodePath("HUD/PanelContainer/Panel/MarginContainer/PanelContents/CoinCounter/CoinsCountLabel")
 platform_bg_texture = NodePath("../Backgrounds/Control/PlatformBgTexture")
 platform_bg_color = NodePath("../Backgrounds/Control/PlatformBgColor")
 
-[node name="Control" type="Control" parent="HUD"]
+[node name="HUD" type="Control" parent="HUDLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -148,19 +148,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="HUD/Control"]
+[node name="PanelContainer" type="PanelContainer" parent="HUDLayer/HUD"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.104
 grow_horizontal = 2
 
-[node name="Panel" type="Panel" parent="HUD/Control/PanelContainer"]
+[node name="Panel" type="Panel" parent="HUDLayer/HUD/PanelContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_hhuoe")
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/Control/PanelContainer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="HUDLayer/HUD/PanelContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -170,20 +170,22 @@ grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 
-[node name="PanelContents" type="HBoxContainer" parent="HUD/Control/PanelContainer/Panel/MarginContainer"]
+[node name="PanelContents" type="HBoxContainer" parent="HUDLayer/HUD/PanelContainer/Panel/MarginContainer"]
 layout_mode = 2
 
-[node name="CoinCounter" type="HBoxContainer" parent="HUD/Control/PanelContainer/Panel/MarginContainer/PanelContents"]
+[node name="CoinCounter" type="HBoxContainer" parent="HUDLayer/HUD/PanelContainer/Panel/MarginContainer/PanelContents"]
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HUD/Control/PanelContainer/Panel/MarginContainer/PanelContents/CoinCounter"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HUDLayer/HUD/PanelContainer/Panel/MarginContainer/PanelContents/CoinCounter"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.34
+size_flags_stretch_ratio = 0.84
 ratio = 1.3597
+alignment_horizontal = 2
 
-[node name="TextureRect" type="TextureRect" parent="HUD/Control/PanelContainer/Panel/MarginContainer/PanelContents/CoinCounter/AspectRatioContainer"]
+[node name="TextureRect" type="TextureRect" parent="HUDLayer/HUD/PanelContainer/Panel/MarginContainer/PanelContents/CoinCounter/AspectRatioContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_21xkr")
@@ -191,7 +193,7 @@ expand_mode = 1
 stretch_mode = 6
 metadata/_edit_use_anchors_ = true
 
-[node name="CoinsCountLabel" type="Label" parent="HUD/Control/PanelContainer/Panel/MarginContainer/PanelContents/CoinCounter"]
+[node name="CoinsCountLabel" type="Label" parent="HUDLayer/HUD/PanelContainer/Panel/MarginContainer/PanelContents/CoinCounter"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("5_6bp64")
@@ -199,11 +201,11 @@ theme_override_font_sizes/font_size = 32
 text = "/"
 metadata/_edit_use_anchors_ = true
 
-[node name="CenterContainer2" type="CenterContainer" parent="HUD/Control/PanelContainer/Panel/MarginContainer/PanelContents"]
+[node name="CenterContainer2" type="CenterContainer" parent="HUDLayer/HUD/PanelContainer/Panel/MarginContainer/PanelContents"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LevelButton" type="Button" parent="HUD/Control/PanelContainer/Panel/MarginContainer/PanelContents/CenterContainer2"]
+[node name="LevelButton" type="Button" parent="HUDLayer/HUD/PanelContainer/Panel/MarginContainer/PanelContents/CenterContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 5.13
@@ -221,11 +223,12 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_344ge")
 text = "Level X"
 metadata/_edit_use_anchors_ = true
 
-[node name="CenterContainer3" type="CenterContainer" parent="HUD/Control/PanelContainer/Panel/MarginContainer/PanelContents"]
+[node name="CenterContainer3" type="CenterContainer" parent="HUDLayer/HUD/PanelContainer/Panel/MarginContainer/PanelContents"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="BgCheckButton" type="CheckButton" parent="HUD/Control/PanelContainer/Panel/MarginContainer/PanelContents/CenterContainer3"]
+[node name="BgCheckButton" type="CheckButton" parent="HUDLayer/HUD/PanelContainer/Panel/MarginContainer/PanelContents/CenterContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -245,7 +248,7 @@ button_pressed = true
 text = "Cool BG"
 metadata/_edit_use_anchors_ = true
 
-[node name="TouchscreenButtons" type="HBoxContainer" parent="HUD/Control"]
+[node name="TouchscreenButtons" type="HBoxContainer" parent="HUDLayer/HUD"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.5
@@ -254,12 +257,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HUD/Control/TouchscreenButtons"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HUDLayer/HUD/TouchscreenButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 ratio = 1.5754
 
-[node name="Left" type="TextureButton" parent="HUD/Control/TouchscreenButtons/AspectRatioContainer"]
+[node name="Left" type="TextureButton" parent="HUDLayer/HUD/TouchscreenButtons/AspectRatioContainer"]
 modulate = Color(1, 1, 1, 0.5882353)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -270,12 +273,12 @@ script = ExtResource("7_hptm8")
 input_action = &"Left"
 metadata/_custom_type_script = "uid://d2qiqi4w2c4fq"
 
-[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="HUD/Control/TouchscreenButtons"]
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="HUDLayer/HUD/TouchscreenButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 ratio = 1.5754
 
-[node name="Right" type="TextureButton" parent="HUD/Control/TouchscreenButtons/AspectRatioContainer2"]
+[node name="Right" type="TextureButton" parent="HUDLayer/HUD/TouchscreenButtons/AspectRatioContainer2"]
 modulate = Color(1, 1, 1, 0.5882353)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -286,20 +289,20 @@ script = ExtResource("7_hptm8")
 input_action = &"Right"
 metadata/_custom_type_script = "uid://d2qiqi4w2c4fq"
 
-[node name="Filler" type="Control" parent="HUD/Control/TouchscreenButtons"]
+[node name="Filler" type="Control" parent="HUDLayer/HUD/TouchscreenButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Filler2" type="Control" parent="HUD/Control/TouchscreenButtons"]
+[node name="Filler2" type="Control" parent="HUDLayer/HUD/TouchscreenButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="HUD/Control/TouchscreenButtons"]
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="HUDLayer/HUD/TouchscreenButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 ratio = 1.5754
 
-[node name="Jump" type="TextureButton" parent="HUD/Control/TouchscreenButtons/AspectRatioContainer3"]
+[node name="Jump" type="TextureButton" parent="HUDLayer/HUD/TouchscreenButtons/AspectRatioContainer3"]
 modulate = Color(1, 1, 1, 0.5882353)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -310,7 +313,7 @@ script = ExtResource("7_hptm8")
 input_action = &"Jump"
 metadata/_custom_type_script = "uid://d2qiqi4w2c4fq"
 
-[node name="ForKacper<33" type="Control" parent="HUD/Control"]
+[node name="ForKacper<33" type="Control" parent="HUDLayer/HUD"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -319,7 +322,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LeftTouchAnchors" type="Control" parent="HUD/Control/ForKacper<33"]
+[node name="LeftTouchAnchors" type="Control" parent="HUDLayer/HUD/ForKacper<33"]
 layout_mode = 1
 anchor_left = 0.072
 anchor_top = 0.886
@@ -329,14 +332,13 @@ offset_top = -40.0
 offset_right = 40.0
 grow_vertical = 0
 
-[node name="LeftTouchButton" type="TouchScreenButton" parent="HUD/Control/ForKacper<33/LeftTouchAnchors"]
+[node name="LeftTouchButton" type="TouchScreenButton" parent="HUDLayer/HUD/ForKacper<33/LeftTouchAnchors"]
 position = Vector2(34.056, -5.1279907)
 shape = SubResource("RectangleShape2D_kry3j")
 passby_press = true
 action = "Left"
 
-[node name="Frost" type="Sprite2D" parent="HUD/Control/ForKacper<33/LeftTouchAnchors/LeftTouchButton"]
-visible = false
+[node name="Frost" type="Sprite2D" parent="HUDLayer/HUD/ForKacper<33/LeftTouchAnchors/LeftTouchButton"]
 material = SubResource("ShaderMaterial_hptm8")
 position = Vector2(-17.330002, -13.950012)
 scale = Vector2(1.62, 1.62)
@@ -344,14 +346,14 @@ texture = ExtResource("4_jjvhh")
 region_enabled = true
 region_rect = Rect2(0, 0, 107, 105)
 
-[node name="TextureLeft" type="Sprite2D" parent="HUD/Control/ForKacper<33/LeftTouchAnchors/LeftTouchButton"]
+[node name="TextureLeft" type="Sprite2D" parent="HUDLayer/HUD/ForKacper<33/LeftTouchAnchors/LeftTouchButton"]
 self_modulate = Color(1, 1, 1, 0.66300005)
 position = Vector2(0, 3)
 texture = ExtResource("7_6bp64")
 region_enabled = true
 region_rect = Rect2(0, 0, 107, 105)
 
-[node name="RightTouchAnchors" type="Control" parent="HUD/Control/ForKacper<33"]
+[node name="RightTouchAnchors" type="Control" parent="HUDLayer/HUD/ForKacper<33"]
 layout_mode = 1
 anchor_left = 0.198
 anchor_top = 0.886
@@ -362,14 +364,13 @@ offset_top = -40.0
 offset_right = 59.000015
 grow_vertical = 0
 
-[node name="RightTouchButton" type="TouchScreenButton" parent="HUD/Control/ForKacper<33/RightTouchAnchors"]
+[node name="RightTouchButton" type="TouchScreenButton" parent="HUDLayer/HUD/ForKacper<33/RightTouchAnchors"]
 position = Vector2(39.904007, -2.1279907)
 shape = SubResource("RectangleShape2D_kry3j")
 passby_press = true
 action = "Right"
 
-[node name="Frost" type="Sprite2D" parent="HUD/Control/ForKacper<33/RightTouchAnchors/RightTouchButton"]
-visible = false
+[node name="Frost" type="Sprite2D" parent="HUDLayer/HUD/ForKacper<33/RightTouchAnchors/RightTouchButton"]
 material = SubResource("ShaderMaterial_hptm8")
 position = Vector2(-16.999985, -18)
 scale = Vector2(1.62, 1.62)
@@ -377,13 +378,13 @@ texture = ExtResource("4_jjvhh")
 region_enabled = true
 region_rect = Rect2(0, 0, 107, 105)
 
-[node name="TextureRight" type="Sprite2D" parent="HUD/Control/ForKacper<33/RightTouchAnchors/RightTouchButton"]
+[node name="TextureRight" type="Sprite2D" parent="HUDLayer/HUD/ForKacper<33/RightTouchAnchors/RightTouchButton"]
 self_modulate = Color(1, 1, 1, 0.66300005)
 texture = ExtResource("7_6bp64")
 region_enabled = true
 region_rect = Rect2(107, 0, 107, 105)
 
-[node name="JumpTouchAnchors" type="Control" parent="HUD/Control/ForKacper<33"]
+[node name="JumpTouchAnchors" type="Control" parent="HUDLayer/HUD/ForKacper<33"]
 layout_mode = 1
 anchor_left = 0.882
 anchor_top = 0.886
@@ -393,14 +394,13 @@ offset_top = -40.0
 offset_right = 39.99994
 grow_vertical = 0
 
-[node name="JumpTouchButton" type="TouchScreenButton" parent="HUD/Control/ForKacper<33/JumpTouchAnchors"]
+[node name="JumpTouchButton" type="TouchScreenButton" parent="HUDLayer/HUD/ForKacper<33/JumpTouchAnchors"]
 position = Vector2(2.9359741, -2.1279907)
 shape = SubResource("RectangleShape2D_kry3j")
 passby_press = true
 action = "Jump"
 
-[node name="Frost" type="Sprite2D" parent="HUD/Control/ForKacper<33/JumpTouchAnchors/JumpTouchButton"]
-visible = false
+[node name="Frost" type="Sprite2D" parent="HUDLayer/HUD/ForKacper<33/JumpTouchAnchors/JumpTouchButton"]
 material = SubResource("ShaderMaterial_hptm8")
 position = Vector2(-17.999985, -18)
 scale = Vector2(1.62, 1.62)
@@ -408,10 +408,10 @@ texture = ExtResource("4_jjvhh")
 region_enabled = true
 region_rect = Rect2(0, 0, 107, 105)
 
-[node name="TextureJump" type="Sprite2D" parent="HUD/Control/ForKacper<33/JumpTouchAnchors/JumpTouchButton"]
+[node name="TextureJump" type="Sprite2D" parent="HUDLayer/HUD/ForKacper<33/JumpTouchAnchors/JumpTouchButton"]
 self_modulate = Color(1, 1, 1, 0.66300005)
 texture = ExtResource("7_6bp64")
 region_enabled = true
 region_rect = Rect2(214, 0, 107, 105)
 
-[connection signal="toggled" from="HUD/Control/PanelContainer/Panel/MarginContainer/PanelContents/CenterContainer3/BgCheckButton" to="HUD" method="_on_bg_check_button_toggled"]
+[connection signal="toggled" from="HUDLayer/HUD/PanelContainer/Panel/MarginContainer/PanelContents/CenterContainer3/BgCheckButton" to="HUDLayer" method="_on_bg_check_button_toggled"]
