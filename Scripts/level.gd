@@ -12,7 +12,7 @@ var checkpoint_start:Checkpoint
 @onready var player_death_sfx: AudioStreamPlayer = $PlayerDeathSfx
 
 func _ready() -> void:
-	Global.all_collectibles = collectibles_parent.get_children()
+	Global.all_coins = sort_collectibles()[0]
 	Global.set_max_coins()
 	checkpoint_start = checkpoint_parent.get_node("CheckpointStart")
 	assign_checkpoint_id()
@@ -27,7 +27,7 @@ func assign_checkpoint_id():
 		print("Chp ID: ", checkp.id)
 
 func assign_collectible_id():
-	var flag_arr:Array = get_all_flags()
+	var flag_arr:Array = sort_collectibles()[1]
 	for flag in flag_arr:
 		flag.id = flag_arr.find(flag)
 		print("Flag ID: ", flag.id)
@@ -38,19 +38,22 @@ func get_all_checkpoints() -> Array:
 	all_checkpoints.erase(checkpoint_start)
 	return all_checkpoints
 
-func get_all_flags() -> Array:
+func sort_collectibles() -> Array[Array]:
+	var all_coins:Array = []
 	var all_flags:Array = []
-	for collectible in Global.all_collectibles:
-		if collectible.collectible_type == collectible.type.FLAG:
+	for collectible in collectibles_parent.get_children():
+		if collectible is Coin:
+			all_coins.append(collectible)
+		elif collectible is Flag:
 			all_flags.append(collectible)
-	return all_flags
+	return [all_coins, all_flags]
 
 func set_level_color():
-	if get_all_checkpoints().size() == get_all_flags().size():
+	if get_all_checkpoints().size() == sort_collectibles()[1].size():
 		for i in get_all_checkpoints().size():
 			var flag_color = ColorLib.pick_level_color()
 			get_all_checkpoints()[i].modulate = flag_color
-			get_all_flags()[i].modulate = flag_color
+			sort_collectibles()[1][i].modulate = flag_color
 
 func introduce_yourself_to_checkpoints(all_checkpoints_including_start:Array):
 	for checkpoint in all_checkpoints_including_start:
@@ -79,7 +82,10 @@ func add_new_player_instance() -> void:
 func uncollect_collectibles() -> void:
 	for collectible in collectibles_parent.get_children():
 		if Global.collected_before_checkpoint.has(collectible):
-			collectible.uncollect()
+			if collectible is Flag:
+				collectible.uncollect("flag")
+			elif collectible is Coin:
+				collectible.uncollect("coin")
 	Global.collected_before_checkpoint.clear()
 
 func _on_world_boundary_area_body_entered(body: Node2D) -> void:

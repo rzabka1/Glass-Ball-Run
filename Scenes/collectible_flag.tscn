@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbrrvbfr4copl"]
+
+[ext_resource type="Script" uid="uid://bbfip4g3wbcbs" path="res://Scripts/collectible_flag.gd" id="1_nhmp3"]
+[ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white_border_tileset.png" id="2_xiwxx"]
+[ext_resource type="Shape2D" uid="uid://dd4umhre707u3" path="res://Resources/collectible_collision.tres" id="3_k5x3f"]
+[ext_resource type="AudioStream" uid="uid://qoudp7x8iqg4" path="res://Assets/Audio/redball-sfx-flag.wav" id="4_xiwxx"]
+
+[node name="Flag" type="Area2D"]
+script = ExtResource("1_nhmp3")
+
+[node name="Texture" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_xiwxx")
+region_enabled = true
+region_rect = Rect2(1600, 0, 160, 160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = ExtResource("3_k5x3f")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xiwxx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

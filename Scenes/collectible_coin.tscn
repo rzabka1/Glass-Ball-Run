@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjgda8kick4tk"]
+
+[ext_resource type="Script" uid="uid://cat1lc6uf1ayn" path="res://Scripts/collectible_coin.gd" id="1_4hyek"]
+[ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white_border_tileset.png" id="2_4hyek"]
+[ext_resource type="Shape2D" uid="uid://dd4umhre707u3" path="res://Resources/collectible_collision.tres" id="3_lut5b"]
+[ext_resource type="AudioStream" uid="uid://djxaqvlfx08yu" path="res://Assets/Audio/redball-coin-collect.wav" id="4_4hyek"]
+
+[node name="Coin" type="Area2D"]
+script = ExtResource("1_4hyek")
+
+[node name="Texture" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_4hyek")
+region_enabled = true
+region_rect = Rect2(1440, 160, 160, 159)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = ExtResource("3_lut5b")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4hyek")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
