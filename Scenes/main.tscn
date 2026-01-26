@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bja8xinxca1bf"]
+[gd_scene load_steps=26 format=3 uid="uid://bja8xinxca1bf"]
 
 [ext_resource type="Texture2D" uid="uid://duxlabxh8arp3" path="res://Assets/Sprites/grid_bg.jpg" id="1_21xkr"]
 [ext_resource type="Shader" uid="uid://dobmful5tajjg" path="res://Resources/chroma_key.gdshader" id="2_6bp64"]
@@ -35,6 +35,10 @@ corner_detail = 5
 [sub_resource type="AtlasTexture" id="AtlasTexture_21xkr"]
 atlas = ExtResource("4_6iyac")
 region = Rect2(1440, 160, 160, 160)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fdnlq"]
+font = ExtResource("5_6bp64")
+font_size = 48
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8gbba"]
 
@@ -196,9 +200,8 @@ metadata/_edit_use_anchors_ = true
 [node name="CoinsCountLabel" type="Label" parent="HUDLayer/HUD/PanelContainer/Panel/MarginContainer/PanelContents/CoinCounter"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("5_6bp64")
-theme_override_font_sizes/font_size = 32
 text = "/"
+label_settings = SubResource("LabelSettings_fdnlq")
 metadata/_edit_use_anchors_ = true
 
 [node name="CenterContainer2" type="CenterContainer" parent="HUDLayer/HUD/PanelContainer/Panel/MarginContainer/PanelContents"]
@@ -213,7 +216,7 @@ theme_override_colors/font_pressed_color = Color(0.46666667, 0.63529414, 0.95294
 theme_override_colors/font_hover_color = Color(0.6745098, 0.9647059, 0.8117647, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.46666667, 0.63529414, 0.9529412, 1)
 theme_override_fonts/font = ExtResource("5_6bp64")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8gbba")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_jjvhh")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_kry3j")
