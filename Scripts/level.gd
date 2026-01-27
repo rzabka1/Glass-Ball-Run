@@ -98,10 +98,11 @@ func change_background(color:Color):
 	bg_color.material.set_shader_parameter("feather", 0.005)
 	bg_color.material.set_shader_parameter("circle_size", 0.0)
 	
-	# 1. Tween to black
-	var black_tween:Tween = get_tree().create_tween()
-	black_tween.tween_property(bg_color, "material:shader_parameter/circle_size", 1.2, 0.15)
-	await black_tween.finished
+	# 1. Tween to white
+	var white_tween:Tween = get_tree().create_tween()
+	white_tween.tween_property(bg_color, "material:shader_parameter/circle_size", 1.2, 0.2)
+	await white_tween.finished
+	white_tween.stop()
 	
 	# 2. Change bg color underneath
 	bg_color.color = color
@@ -114,6 +115,7 @@ func change_background(color:Color):
 	var color_tween:Tween = get_tree().create_tween()
 	color_tween.tween_property(bg_color, "material:shader_parameter/circle_size", 1.2, 0.3)
 	await color_tween.finished
+	color_tween.stop()
 
 func _on_world_boundary_area_body_entered(body: Node2D) -> void:
 	if body is Player:
