@@ -1,6 +1,8 @@
 class_name Level
 extends Node2D
 
+@export var bg_color: ColorRect
+@export var black_rect: ColorRect
 var player:RigidBody2D
 var checkpoint_start:Checkpoint
 var all_coins:Array = []
@@ -10,7 +12,6 @@ var all_flags:Array = []
 @onready var player_scene:PackedScene = preload("res://Scenes/rigid_player.tscn")
 @onready var collectibles_parent:Node2D = $Collectibles
 @onready var checkpoint_parent: Node2D = $Checkpoints
-@onready var bg_color: ColorRect = $Bckgr/BgColor
 @onready var player_death_sfx: AudioStreamPlayer = $PlayerDeathSfx
 
 func _ready() -> void:
@@ -37,9 +38,6 @@ func assign_collectible_id():
 
 func manage_flag_visibility():
 	for flag in all_flags:
-		print(flag)
-		print("manage - flag id: ", flag.id)
-		print("manage - last chp id: ", Global.last_checkpoint.id)
 		if flag.id == Global.last_checkpoint.id + 1:
 			flag.enable_disable(true)
 		else:
@@ -94,6 +92,28 @@ func uncollect_collectibles() -> void:
 		if Global.collected_before_checkpoint.has(collectible):
 			collectible.uncollect(collectible)
 	Global.collected_before_checkpoint.clear()
+
+func change_background(color:Color):
+	# 0. Initial shader setup
+	bg_color.material.set_shader_parameter("feather", 0.005)
+	bg_color.material.set_shader_parameter("circle_size", 0.0)
+	
+	# 1. Tween to black
+	var black_tween:Tween = get_tree().create_tween()
+	black_tween.tween_property(bg_color, "material:shader_parameter/circle_size", 1.2, 0.15)
+	await black_tween.finished
+	
+	# 2. Change bg color underneath
+	bg_color.color = color
+	
+	# 3. Shader setup
+	bg_color.material.set_shader_parameter("feather", -0.005)
+	bg_color.material.set_shader_parameter("circle_size", 0.0)
+	
+	# 4. Tween to color
+	var color_tween:Tween = get_tree().create_tween()
+	color_tween.tween_property(bg_color, "material:shader_parameter/circle_size", 1.2, 0.3)
+	await color_tween.finished
 
 func _on_world_boundary_area_body_entered(body: Node2D) -> void:
 	if body is Player:

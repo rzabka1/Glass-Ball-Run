@@ -96,7 +96,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PlatformBgTexture" type="TextureRect" parent="Backgrounds/Control"]
-modulate = Color(0.35617894, 0.06466895, 0.15147322, 1)
+modulate = Color(0.71587205, 0.18113115, 0.34000003, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

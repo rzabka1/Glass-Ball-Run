@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=4 uid="uid://dlsxump8cdbae"]
+[gd_scene load_steps=17 format=4 uid="uid://dlsxump8cdbae"]
 
 [ext_resource type="Script" uid="uid://cxexvxv33v6v6" path="res://Scripts/level.gd" id="1_jv26f"]
 [ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white_border_tileset.png" id="2_rb0md"]
+[ext_resource type="Shader" uid="uid://bj2rdg6bnpthm" path="res://Resources/spotlight.gdshader" id="2_u5ghp"]
 [ext_resource type="PackedScene" uid="uid://d02oj63bswgmx" path="res://Scenes/ferris_wheel.tscn" id="3_u5ghp"]
 [ext_resource type="PackedScene" uid="uid://cjtsmoogealy7" path="res://Scenes/checkpoint.tscn" id="4_hwvp3"]
 [ext_resource type="PackedScene" uid="uid://dbrrvbfr4copl" path="res://Scenes/collectible_flag.tscn" id="5_rb0md"]
@@ -9,6 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://cjgda8kick4tk" path="res://Scenes/collectible_coin.tscn" id="6_u5ghp"]
 [ext_resource type="AudioStream" uid="uid://cevn3xgxv8jod" path="res://Assets/Audio/redball-sfx-breaking-glass.wav" id="7_k2mw1"]
 [ext_resource type="PackedScene" uid="uid://b1o6ix8okpgb3" path="res://Scenes/rigid_player.tscn" id="8_tjl6l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hwvp3"]
+shader = ExtResource("2_u5ghp")
+shader_parameter/circle_size = 0.0
+shader_parameter/feather = 0.005
+shader_parameter/circle_position = Vector2(0.5, 0.75)
+shader_parameter/screen_width = 1920.0
+shader_parameter/screen_height = 1080.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i0t7r"]
 
@@ -265,20 +274,39 @@ font_size = 38
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5f3p6"]
 
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("bg_color", "black_rect")]
 script = ExtResource("1_jv26f")
+bg_color = NodePath("Bckgr/Control/BgColor")
+black_rect = NodePath("Bckgr/Control/Black")
 
 [node name="Bckgr" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="BgColor" type="ColorRect" parent="Bckgr"]
+[node name="Control" type="Control" parent="Bckgr"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Black" type="ColorRect" parent="Bckgr/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BgColor" type="ColorRect" parent="Bckgr/Control"]
+material = SubResource("ShaderMaterial_hwvp3")
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.3709187, 0.6141819, 0.555972, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="Tiles" type="TileMapLayer" parent="."]
 material = SubResource("ShaderMaterial_i0t7r")
