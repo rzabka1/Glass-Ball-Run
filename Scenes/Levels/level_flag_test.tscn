@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=4 uid="uid://b0cg81av02dbq"]
+[gd_scene load_steps=13 format=4 uid="uid://b0cg81av02dbq"]
 
 [ext_resource type="Script" uid="uid://cxexvxv33v6v6" path="res://Scripts/level.gd" id="1_v24bq"]
 [ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white_border_tileset.png" id="2_jk5ma"]
 [ext_resource type="PackedScene" uid="uid://cjtsmoogealy7" path="res://Scenes/checkpoint.tscn" id="3_2iym5"]
-[ext_resource type="Script" uid="uid://ch7u0speyg7u6" path="res://Scripts/collectible.gd" id="4_dneqs"]
+[ext_resource type="PackedScene" uid="uid://dbrrvbfr4copl" path="res://Scenes/collectible_flag.tscn" id="4_2k7vx"]
+[ext_resource type="PackedScene" uid="uid://cjgda8kick4tk" path="res://Scenes/collectible_coin.tscn" id="5_7x0ak"]
 [ext_resource type="FontFile" uid="uid://bnt8n28p40v6a" path="res://Assets/Fonts/SeriousShanns-Bold.otf" id="5_jk5ma"]
 [ext_resource type="AudioStream" uid="uid://cevn3xgxv8jod" path="res://Assets/Audio/redball-sfx-breaking-glass.wav" id="6_jk5ma"]
 [ext_resource type="PackedScene" uid="uid://b1o6ix8okpgb3" path="res://Scenes/rigid_player.tscn" id="6_n4oa3"]
@@ -299,28 +300,17 @@ position = Vector2(1421, -176)
 
 [node name="Collectibles" type="Node2D" parent="."]
 
-[node name="Collectible" type="Area2D" parent="Collectibles"]
+[node name="Flag" parent="Collectibles" instance=ExtResource("4_2k7vx")]
 position = Vector2(233, 0)
-script = ExtResource("4_dneqs")
-collectible_type = 1
-metadata/_custom_type_script = "uid://ch7u0speyg7u6"
 
-[node name="Collectible2" type="Area2D" parent="Collectibles"]
+[node name="Flag2" parent="Collectibles" instance=ExtResource("4_2k7vx")]
 position = Vector2(559, 118)
-script = ExtResource("4_dneqs")
-collectible_type = 1
-metadata/_custom_type_script = "uid://ch7u0speyg7u6"
 
-[node name="Collectible3" type="Area2D" parent="Collectibles"]
+[node name="Flag3" parent="Collectibles" instance=ExtResource("4_2k7vx")]
 position = Vector2(1117, 183)
-script = ExtResource("4_dneqs")
-collectible_type = 1
-metadata/_custom_type_script = "uid://ch7u0speyg7u6"
 
-[node name="Collectible4" type="Area2D" parent="Collectibles"]
+[node name="Coin" parent="Collectibles" instance=ExtResource("5_7x0ak")]
 position = Vector2(917, 174)
-script = ExtResource("4_dneqs")
-metadata/_custom_type_script = "uid://ch7u0speyg7u6"
 
 [node name="Particles" type="Node2D" parent="."]
 

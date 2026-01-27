@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="RedballRipoff"
+config/name="Glass Ball Run!"
 run/main_scene="uid://bja8xinxca1bf"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.32800502, 0.7396293, 0.5340975, 1)
+config/icon="uid://dl61tb5bosspu"
 
 [autoload]
 

@@ -1,11 +1,12 @@
-[gd_scene load_steps=13 format=4 uid="uid://ctk36x7wfkrxx"]
+[gd_scene load_steps=14 format=4 uid="uid://ctk36x7wfkrxx"]
 
 [ext_resource type="Script" uid="uid://cxexvxv33v6v6" path="res://Scripts/level.gd" id="1_xekea"]
 [ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white_border_tileset.png" id="2_5jonw"]
 [ext_resource type="PackedScene" uid="uid://cjtsmoogealy7" path="res://Scenes/checkpoint.tscn" id="3_1qg35"]
 [ext_resource type="FontFile" uid="uid://bnt8n28p40v6a" path="res://Assets/Fonts/SeriousShanns-Bold.otf" id="4_h17r7"]
-[ext_resource type="Script" uid="uid://ch7u0speyg7u6" path="res://Scripts/collectible.gd" id="5_5jonw"]
+[ext_resource type="PackedScene" uid="uid://cjgda8kick4tk" path="res://Scenes/collectible_coin.tscn" id="5_1qg35"]
 [ext_resource type="AudioStream" uid="uid://cevn3xgxv8jod" path="res://Assets/Audio/redball-sfx-breaking-glass.wav" id="5_oakfh"]
+[ext_resource type="PackedScene" uid="uid://dbrrvbfr4copl" path="res://Scenes/collectible_flag.tscn" id="6_h17r7"]
 [ext_resource type="PackedScene" uid="uid://b1o6ix8okpgb3" path="res://Scenes/rigid_player.tscn" id="6_jd266"]
 [ext_resource type="PackedScene" uid="uid://d02oj63bswgmx" path="res://Scenes/ferris_wheel.tscn" id="7_288ww"]
 
@@ -297,16 +298,11 @@ position = Vector2(1110, -80)
 
 [node name="Collectibles" type="Node2D" parent="."]
 
-[node name="Collectible" type="Area2D" parent="Collectibles"]
+[node name="Coin" parent="Collectibles" instance=ExtResource("5_1qg35")]
 position = Vector2(401, -195)
-script = ExtResource("5_5jonw")
-metadata/_custom_type_script = "uid://ch7u0speyg7u6"
 
-[node name="Collectible2" type="Area2D" parent="Collectibles"]
+[node name="Flag" parent="Collectibles" instance=ExtResource("6_h17r7")]
 position = Vector2(7, -205)
-script = ExtResource("5_5jonw")
-collectible_type = 1
-metadata/_custom_type_script = "uid://ch7u0speyg7u6"
 
 [node name="Particles" type="Node2D" parent="."]
 

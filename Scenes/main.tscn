@@ -1,8 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://bja8xinxca1bf"]
+[gd_scene load_steps=49 format=3 uid="uid://bja8xinxca1bf"]
 
 [ext_resource type="Texture2D" uid="uid://duxlabxh8arp3" path="res://Assets/Sprites/grid_bg.jpg" id="1_21xkr"]
 [ext_resource type="Shader" uid="uid://dobmful5tajjg" path="res://Resources/chroma_key.gdshader" id="2_6bp64"]
-[ext_resource type="PackedScene" uid="uid://dlsxump8cdbae" path="res://Scenes/Levels/level_1.tscn" id="3_fdnlq"]
 [ext_resource type="Script" uid="uid://dnwf5jcl8qv7" path="res://Scripts/hud.gd" id="4_6bp64"]
 [ext_resource type="Texture2D" uid="uid://b7lvspvh7wi2b" path="res://Assets/Sprites/white_border_tileset.png" id="4_6iyac"]
 [ext_resource type="Texture2D" uid="uid://ksx1ij21h8jw" path="res://icon.svg" id="4_jjvhh"]
@@ -13,6 +12,16 @@
 [ext_resource type="Shader" uid="uid://bw2f2trnjl761" path="res://Resources/frosted_glass.gdshader" id="7_ynf5e"]
 [ext_resource type="Texture2D" uid="uid://c04fyjrrt57l6" path="res://Assets/Sprites/touch_screen_button_right.png" id="9_jkdf5"]
 [ext_resource type="Texture2D" uid="uid://d1p348o7gtbq7" path="res://Assets/Sprites/touch_screen_button_jump.png" id="10_wsu2k"]
+[ext_resource type="PackedScene" uid="uid://c0l1btyt3on0j" path="res://Scenes/checker_bg.tscn" id="14_h1bgf"]
+[ext_resource type="Texture2D" uid="uid://px7lxw2ucv4q" path="res://Assets/Sprites/menu-button-grid.png" id="14_k12tt"]
+[ext_resource type="Script" uid="uid://upijx3cguatr" path="res://Scripts/main_menu.gd" id="14_pdsj5"]
+[ext_resource type="Texture2D" uid="uid://chx13ggo70qn3" path="res://Assets/Sprites/menu-button-play.png" id="15_h1bgf"]
+[ext_resource type="Texture2D" uid="uid://d4ngek61woi05" path="res://Assets/Sprites/menu-button-settings.png" id="16_b3802"]
+[ext_resource type="Texture2D" uid="uid://cx74v4cfks85k" path="res://Assets/Sprites/menu-button-grid-pressed.png" id="16_hibaj"]
+[ext_resource type="Texture2D" uid="uid://xkrkvnjixjy2" path="res://Assets/Sprites/menu-button-play-pressed.png" id="17_b3802"]
+[ext_resource type="Texture2D" uid="uid://bk0652gcntkrw" path="res://Assets/Sprites/menu-button-settings-pressed.png" id="20_pdsj5"]
+[ext_resource type="Texture2D" uid="uid://wjbpg6gpnxm2" path="res://Assets/Sprites/grabber.png" id="21_pdsj5"]
+[ext_resource type="Texture2D" uid="uid://b3jambvpa8o7k" path="res://Assets/Sprites/grabber_highlight.png" id="22_ee4r6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_344ge"]
 shader = ExtResource("2_6bp64")
@@ -82,6 +91,145 @@ shader_parameter/blur_samples = 4
 shader_parameter/glass_opacity = 0.150000007125
 shader_parameter/node_size = Vector2(400, 400)
 
+[sub_resource type="LabelSettings" id="LabelSettings_fevyy"]
+font = ExtResource("5_6bp64")
+font_size = 128
+outline_size = 50
+outline_color = Color(0.214452, 0.07745882, 0.34717813, 1)
+stacked_outline_count = 1
+stacked_outline_0/size = 35
+stacked_outline_0/color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hibaj"]
+font = ExtResource("5_6bp64")
+font_size = 96
+font_color = Color(0.28404763, 0.2976088, 0.5280329, 1)
+outline_size = 30
+outline_color = Color(0.89954287, 0.9837026, 1, 1)
+stacked_outline_count = 1
+stacked_outline_0/size = 25
+stacked_outline_0/color = Color(0.28235295, 0.29803923, 0.5294118, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pdsj5"]
+font = ExtResource("5_6bp64")
+font_size = 96
+font_color = Color(0.28404763, 0.2976088, 0.5280329, 1)
+outline_size = 30
+outline_color = Color(0.89954287, 0.9837026, 1, 1)
+stacked_outline_count = 1
+stacked_outline_0/size = 25
+stacked_outline_0/color = Color(0.28235295, 0.29803923, 0.5294118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hibaj"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_left = 17
+border_width_right = 17
+border_color = Color(0.43191338, 0.0022803387, 0.75947136, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pdsj5"]
+draw_center = false
+border_width_left = 17
+border_width_right = 17
+border_color = Color(0.734408, 0.64651614, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee4r6"]
+draw_center = false
+border_width_left = 17
+border_width_right = 17
+border_color = Color(0.734408, 0.64651614, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_ee4r6"]
+font = ExtResource("5_6bp64")
+font_size = 48
+font_color = Color(0.5841233, 0.13067111, 0.9999998, 1)
+outline_size = 15
+outline_color = Color(0.89954287, 0.9837026, 1, 1)
+stacked_outline_count = 1
+stacked_outline_0/size = 15
+stacked_outline_0/color = Color(0.5882353, 0.14117648, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gt3je"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_left = 17
+border_width_right = 17
+border_color = Color(0.7923646, 2.2140146e-06, 0.47050482, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u50mg"]
+draw_center = false
+border_width_left = 17
+border_width_right = 17
+border_color = Color(1, 0.5285554, 0.79349995, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbgmd"]
+bg_color = Color(1, 0.5294118, 0.7921569, 1)
+draw_center = false
+border_width_left = 17
+border_width_right = 17
+border_color = Color(1, 0.5294118, 0.7921569, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_gt3je"]
+font = ExtResource("5_6bp64")
+font_size = 48
+font_color = Color(1, 0.25949213, 0.77557045, 1)
+outline_size = 15
+outline_color = Color(0.89954287, 0.9837026, 1, 1)
+stacked_outline_count = 1
+stacked_outline_0/size = 15
+stacked_outline_0/color = Color(1, 0.25882354, 0.7764706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pmx8"]
+content_margin_top = 15.0
+bg_color = Color(0.8980392, 0.9843137, 1, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.28235295, 0.29803923, 0.5294118, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1w6v2"]
+bg_color = Color(0.590935, 0.7984951, 0.853877, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.28235295, 0.29803923, 0.5294118, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ee4r6"]
+
 [node name="Main" type="Node2D"]
 
 [node name="Backgrounds" type="CanvasLayer" parent="."]
@@ -135,8 +283,6 @@ transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
-
-[node name="Level1" parent="Gameplay/LevelLayer/SubViewportContainer/SubViewport" instance=ExtResource("3_fdnlq")]
 
 [node name="HUDLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("coins_count_label", "platform_bg_texture", "platform_bg_color")]
 script = ExtResource("4_6bp64")
@@ -417,4 +563,219 @@ texture = ExtResource("7_6bp64")
 region_enabled = true
 region_rect = Rect2(214, 0, 107, 105)
 
+[node name="MainMenuLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("gameplay_viewport", "menu_contents", "settings", "level_selection")]
+layer = 2
+script = ExtResource("14_pdsj5")
+gameplay_viewport = NodePath("../Gameplay/LevelLayer/SubViewportContainer/SubViewport")
+menu_contents = NodePath("MainMenu/MarginContainer/AspectRatioContainer/MenuContents")
+settings = NodePath("MainMenu/MarginContainer/AspectRatioContainer/Settings")
+level_selection = NodePath("MainMenu/MarginContainer/AspectRatioContainer/LevelSelection")
+
+[node name="MainMenu" type="Control" parent="MainMenuLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollingBg" type="SubViewportContainer" parent="MainMenuLayer/MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="MainMenuLayer/MainMenu/ScrollingBg"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1167, 667)
+render_target_update_mode = 4
+
+[node name="CheckerBg" parent="MainMenuLayer/MainMenu/ScrollingBg/SubViewport" instance=ExtResource("14_h1bgf")]
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuLayer/MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MainMenuLayer/MainMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="MenuContents" type="VBoxContainer" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Text" type="VBoxContainer" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/MenuContents"]
+layout_mode = 2
+alignment = 1
+
+[node name="GlassBall" type="Label" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/MenuContents/Text"]
+layout_mode = 2
+text = "Glass Ball"
+label_settings = SubResource("LabelSettings_fevyy")
+horizontal_alignment = 1
+
+[node name="Run" type="Label" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/MenuContents/Text"]
+layout_mode = 2
+text = "Run!"
+label_settings = SubResource("LabelSettings_hibaj")
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/MenuContents"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="LevelsContainer" type="VBoxContainer" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/MenuContents/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonLevels" type="TextureButton" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/MenuContents/Buttons/LevelsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("14_k12tt")
+texture_pressed = ExtResource("16_hibaj")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Filler" type="Control" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/MenuContents/Buttons/LevelsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonPlay" type="TextureButton" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/MenuContents/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+texture_normal = ExtResource("15_h1bgf")
+texture_pressed = ExtResource("17_b3802")
+stretch_mode = 3
+
+[node name="SettingsContainer" type="VBoxContainer" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/MenuContents/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonSettings" type="TextureButton" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/MenuContents/Buttons/SettingsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("16_b3802")
+texture_pressed = ExtResource("20_pdsj5")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Filler" type="Control" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/MenuContents/Buttons/SettingsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Settings" type="VBoxContainer" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer"]
+layout_mode = 2
+
+[node name="SettingsLabel" type="Label" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings"]
+layout_mode = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_pdsj5")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 50
+
+[node name="SettingBox" type="HBoxContainer" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MusicCont" type="VBoxContainer" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings/MarginContainer/SettingBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 30
+
+[node name="MusicSlider" type="VSlider" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings/MarginContainer/SettingBox/MusicCont"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_icons/grabber = ExtResource("21_pdsj5")
+theme_override_icons/grabber_highlight = ExtResource("22_ee4r6")
+theme_override_styles/slider = SubResource("StyleBoxFlat_hibaj")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_pdsj5")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_ee4r6")
+value = 50.0
+
+[node name="Label" type="Label" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings/MarginContainer/SettingBox/MusicCont"]
+layout_mode = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_ee4r6")
+horizontal_alignment = 1
+
+[node name="SFXCont" type="VBoxContainer" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings/MarginContainer/SettingBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 30
+
+[node name="SFXSlider" type="VSlider" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings/MarginContainer/SettingBox/SFXCont"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_icons/grabber = ExtResource("21_pdsj5")
+theme_override_icons/grabber_highlight = ExtResource("22_ee4r6")
+theme_override_styles/slider = SubResource("StyleBoxFlat_gt3je")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_u50mg")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_cbgmd")
+value = 100.0
+
+[node name="Label" type="Label" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings/MarginContainer/SettingBox/SFXCont"]
+layout_mode = 2
+text = "SFX"
+label_settings = SubResource("LabelSettings_gt3je")
+horizontal_alignment = 1
+
+[node name="ButtonSettingsReturn" type="Button" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.28235295, 0.29803923, 0.5294118, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("5_6bp64")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_3pmx8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1w6v2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1w6v2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ee4r6")
+text = "Back"
+
+[node name="LevelSelection" type="VBoxContainer" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ChooseLevelLabel" type="Label" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/LevelSelection"]
+layout_mode = 2
+text = "Choose Level"
+label_settings = SubResource("LabelSettings_pdsj5")
+horizontal_alignment = 1
+
+[node name="ButtonLevelsReturn" type="TextureButton" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/LevelSelection"]
+layout_mode = 2
+texture_normal = ExtResource("14_k12tt")
+stretch_mode = 5
+
 [connection signal="toggled" from="HUDLayer/HUD/PanelContainer/Panel/MarginContainer/PanelContents/CenterContainer3/BgCheckButton" to="HUDLayer" method="_on_bg_check_button_toggled"]
+[connection signal="pressed" from="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/MenuContents/Buttons/LevelsContainer/ButtonLevels" to="MainMenuLayer" method="_on_button_levels_pressed"]
+[connection signal="pressed" from="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/MenuContents/Buttons/ButtonPlay" to="MainMenuLayer" method="_on_button_play_pressed"]
+[connection signal="pressed" from="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/MenuContents/Buttons/SettingsContainer/ButtonSettings" to="MainMenuLayer" method="_on_button_settings_pressed"]
+[connection signal="pressed" from="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings/ButtonSettingsReturn" to="MainMenuLayer" method="_on_button_settings_return_pressed"]
+[connection signal="pressed" from="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/LevelSelection/ButtonLevelsReturn" to="MainMenuLayer" method="_on_button_levels_return_pressed"]
