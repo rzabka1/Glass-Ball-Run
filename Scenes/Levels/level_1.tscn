@@ -442,7 +442,7 @@ scale = Vector2(0.5, 0.5)
 text = "#4
 Platforms
 with
-"
+slopes!"
 label_settings = SubResource("LabelSettings_jk5ma")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -486,7 +486,7 @@ stream = ExtResource("7_k2mw1")
 position = Vector2(-179, 18)
 
 [node name="WorldBoundaryArea" type="Area2D" parent="."]
-position = Vector2(774, 475)
+position = Vector2(774, 582)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaryArea"]
 shape = SubResource("WorldBoundaryShape2D_5f3p6")

@@ -19,3 +19,11 @@ func set_max_coins() -> void:
 		max_coins += 1
 		# Emiting the signal here, to ensure the UI updates immediately after calculating the max.
 		coins_count_changed.emit(collected_coins_count, max_coins)
+
+func reset_variables():
+	max_coins = 0
+	collected_before_checkpoint = []
+	collected_coins_count = 0
+	all_coins = []
+	last_checkpoint = null
+	last_flag_id = -1

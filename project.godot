@@ -13,7 +13,7 @@ config_version=5
 config/name="Glass Ball Run!"
 run/main_scene="uid://bja8xinxca1bf"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-boot_splash/bg_color=Color(0.32800502, 0.7396293, 0.5340975, 1)
+boot_splash/bg_color=Color(2.7675182e-07, 0.2937786, 0.2844528, 1)
 config/icon="uid://dl61tb5bosspu"
 
 [autoload]
