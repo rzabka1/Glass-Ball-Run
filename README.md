@@ -1,4 +1,4 @@
-# 🪩 "Glass Ball Run!" 🪩
+# 🪩 Glass Ball Run! 🪩
 ---
 ## About the project☀️
 ***Glass Ball Run!*** is simple 2D physics-based platformer game, developed as a final project for uni classes.
