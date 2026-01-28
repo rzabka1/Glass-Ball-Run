@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bja8xinxca1bf"]
+[gd_scene load_steps=51 format=3 uid="uid://bja8xinxca1bf"]
 
 [ext_resource type="Texture2D" uid="uid://duxlabxh8arp3" path="res://Assets/Sprites/grid_bg.jpg" id="1_21xkr"]
 [ext_resource type="Shader" uid="uid://dobmful5tajjg" path="res://Resources/chroma_key.gdshader" id="2_6bp64"]
@@ -20,8 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://cx74v4cfks85k" path="res://Assets/Sprites/menu-button-grid-pressed.png" id="16_hibaj"]
 [ext_resource type="Texture2D" uid="uid://xkrkvnjixjy2" path="res://Assets/Sprites/menu-button-play-pressed.png" id="17_b3802"]
 [ext_resource type="Texture2D" uid="uid://bk0652gcntkrw" path="res://Assets/Sprites/menu-button-settings-pressed.png" id="20_pdsj5"]
+[ext_resource type="Script" uid="uid://buqksis7durww" path="res://Scripts/settings.gd" id="21_3pmx8"]
 [ext_resource type="Texture2D" uid="uid://wjbpg6gpnxm2" path="res://Assets/Sprites/grabber.png" id="21_pdsj5"]
 [ext_resource type="Texture2D" uid="uid://b3jambvpa8o7k" path="res://Assets/Sprites/grabber_highlight.png" id="22_ee4r6"]
+[ext_resource type="AudioStream" uid="uid://dpp5xjip73rf8" path="res://Assets/Audio/music.wav" id="23_gt3je"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_344ge"]
 shader = ExtResource("2_6bp64")
@@ -697,9 +699,12 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 50
 
-[node name="SettingBox" type="HBoxContainer" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings/MarginContainer"]
+[node name="SettingBox" type="HBoxContainer" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings/MarginContainer" node_paths=PackedStringArray("music_slider", "sfx_slider")]
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("21_3pmx8")
+music_slider = NodePath("MusicCont/MusicSlider")
+sfx_slider = NodePath("SFXCont/SFXSlider")
 
 [node name="MusicCont" type="VBoxContainer" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings/MarginContainer/SettingBox"]
 layout_mode = 2
@@ -715,7 +720,9 @@ theme_override_icons/grabber_highlight = ExtResource("22_ee4r6")
 theme_override_styles/slider = SubResource("StyleBoxFlat_hibaj")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_pdsj5")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_ee4r6")
-value = 50.0
+max_value = 1.0
+step = 0.001
+value = 1.0
 
 [node name="Label" type="Label" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings/MarginContainer/SettingBox/MusicCont"]
 layout_mode = 2
@@ -737,7 +744,9 @@ theme_override_icons/grabber_highlight = ExtResource("22_ee4r6")
 theme_override_styles/slider = SubResource("StyleBoxFlat_gt3je")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_u50mg")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_cbgmd")
-value = 100.0
+max_value = 1.0
+step = 0.001
+value = 1.0
 
 [node name="Label" type="Label" parent="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings/MarginContainer/SettingBox/SFXCont"]
 layout_mode = 2
@@ -773,9 +782,17 @@ layout_mode = 2
 texture_normal = ExtResource("14_k12tt")
 stretch_mode = 5
 
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_gt3je")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
+
 [connection signal="toggled" from="HUDLayer/HUD/PanelContainer/Panel/MarginContainer/PanelContents/CenterContainer3/BgCheckButton" to="HUDLayer" method="_on_bg_check_button_toggled"]
 [connection signal="pressed" from="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/MenuContents/Buttons/LevelsContainer/ButtonLevels" to="MainMenuLayer" method="_on_button_levels_pressed"]
 [connection signal="pressed" from="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/MenuContents/Buttons/ButtonPlay" to="MainMenuLayer" method="_on_button_play_pressed"]
 [connection signal="pressed" from="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/MenuContents/Buttons/SettingsContainer/ButtonSettings" to="MainMenuLayer" method="_on_button_settings_pressed"]
+[connection signal="value_changed" from="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings/MarginContainer/SettingBox/MusicCont/MusicSlider" to="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings/MarginContainer/SettingBox" method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings/MarginContainer/SettingBox/SFXCont/SFXSlider" to="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings/MarginContainer/SettingBox" method="_on_sfx_slider_value_changed"]
 [connection signal="pressed" from="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/Settings/ButtonSettingsReturn" to="MainMenuLayer" method="_on_button_settings_return_pressed"]
 [connection signal="pressed" from="MainMenuLayer/MainMenu/MarginContainer/AspectRatioContainer/LevelSelection/ButtonLevelsReturn" to="MainMenuLayer" method="_on_button_levels_return_pressed"]

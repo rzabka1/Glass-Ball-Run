@@ -20,5 +20,6 @@ shape = ExtResource("3_lut5b")
 
 [node name="CoinCollectSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_4hyek")
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
