@@ -1,13 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0l1btyt3on0j"]
+[gd_scene load_steps=2 format=3 uid="uid://c0l1btyt3on0j"]
 
-[ext_resource type="Script" uid="uid://bm7wkfceo0ng6" path="res://Scripts/menu_parallax.gd" id="1_glvkn"]
 [ext_resource type="Texture2D" uid="uid://dkidfbvur3yi6" path="res://Assets/Sprites/checker_bg_green.png" id="2_glvkn"]
 
 [node name="CheckerBg" type="Parallax2D"]
 scroll_offset = Vector2(1200, 645)
 repeat_size = Vector2(1399.95, 954.525)
-repeat_times = 6
-script = ExtResource("1_glvkn")
+autoscroll = Vector2(-50, -50)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(643.5, 436)
